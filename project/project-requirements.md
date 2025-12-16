@@ -2010,224 +2010,165 @@ Use this checklist to verify you have all required components before submitting:
 
 ---
 
-#### Technical Execution (70 points)
+#### Grading Categories (100 points total)
 
-**Problem A - Linear Programming Model & Solver Execution (25 points)**
+| Category | Excellent | Good | Adequate | Poor |
+|----------|-----------|------|----------|------|
+| **LP (Linear Programming)** | 25 | 19 | 13 | 6 |
+| **PROB_B (Problem B Method)** | 25 | 19 | 13 | 6 |
+| **SLIDES (Slide Structure)** | 15 | 11 | 8 | 4 |
+| **TITLES (Takeaway Titles)** | 20 | 15 | 10 | 5 |
+| **POLISH (Professional Polish)** | 15 | 11 | 8 | 4 |
+| **Total** | **100** | **75** | **52** | **24** |
 
-- **25 - Excellent**:
-  - **Model Setup**: Decision variables clearly labeled and organized; objective function calculated correctly; all constraints properly formulated with cell references; parameters logically organized
-  - **Solver Configuration**: Solver set to Simplex LP method; objective cell, variable cells, and constraints correctly specified; solution converges to optimal
-  - **Solution Quality**: Optimal solution is reasonable and makes business sense; all decision variable values displayed; objective function value clearly shown; constraint satisfaction verified (binding vs. slack indicated)
-  - **Formula Visibility**: All formulas visible and properly labeled; professional formatting throughout; model is easy to follow and audit
-  - Model demonstrates strong understanding of linear programming concepts
+---
 
-- **19 - Good**:
-  - **Model Setup**: Decision variables labeled; objective function mostly correct (may have minor issues); most constraints properly formulated
-  - **Solver Configuration**: Solver mostly configured correctly; solution converges
-  - **Solution Quality**: Solution is reasonable; decision variables and objective value displayed; constraint satisfaction mostly verified
-  - **Formula Visibility**: Most formulas visible; good labeling; generally well-formatted
-  - Model demonstrates adequate understanding of linear programming
+#### LP - Linear Programming (25 points)
 
-- **13 - Adequate**:
-  - **Model Setup**: Decision variables present but labeling could be clearer; objective function has some issues but generally correct; some constraints may be incomplete
-  - **Solver Configuration**: Solver configured but may have minor errors; solution obtained
-  - **Solution Quality**: Solution present but may not be fully verified; some elements missing
-  - **Formula Visibility**: Some formulas visible; basic labeling; acceptable formatting
-  - Model demonstrates basic understanding of linear programming
-
-- **6 - Poor**:
-  - **Model Setup**: Decision variables unclear; objective function has significant errors; constraints incomplete or incorrect
-  - **Solver Configuration**: Solver not properly configured; solution may not be optimal or feasible
-  - **Solution Quality**: Solution unclear or incorrect; missing key elements
-  - **Formula Visibility**: Most formulas hidden; poor labeling; unclear structure
-  - Model demonstrates limited understanding of linear programming
-
-- **0 - Missing**: Linear programming model missing or severely incomplete
-
-**Problem A - Sensitivity Analysis (20 points)**
-
-- **20 - Excellent**:
-  - **Sensitivity Report**: Complete Sensitivity Report from Solver included and properly formatted
-  - **Shadow Prices**: All shadow prices correctly identified and interpreted; explains which constraints are binding and their economic value
-  - **Allowable Ranges**: Allowable increases/decreases documented for both objective coefficients and constraint RHS values
-  - **Business Implications**: Clear explanation of what sensitivity analysis reveals about the problem; identifies which constraints limit performance; provides actionable insights about where to focus improvement efforts
-  - **Professional Presentation**: Well-organized, clearly labeled, easy to understand
-  - Demonstrates strong understanding of sensitivity analysis and its business value
-
-- **15 - Good**:
-  - **Sensitivity Report**: Sensitivity Report included
-  - **Shadow Prices**: Most shadow prices identified and interpreted; binding constraints explained
-  - **Allowable Ranges**: Most allowable ranges documented
-  - **Business Implications**: Good explanation of key insights; identifies main constraints
-  - **Professional Presentation**: Well-organized and labeled
-  - Demonstrates good understanding of sensitivity analysis
-
-- **10 - Adequate**:
-  - **Sensitivity Report**: Sensitivity Report present but may be poorly formatted
-  - **Shadow Prices**: Some shadow prices identified; basic interpretation
-  - **Allowable Ranges**: Some allowable ranges documented
-  - **Business Implications**: Basic explanation of insights; limited business context
-  - **Professional Presentation**: Acceptable organization
-  - Demonstrates basic understanding of sensitivity analysis
-
-- **5 - Poor**:
-  - **Sensitivity Report**: Sensitivity Report missing or incomplete
-  - **Shadow Prices**: Few or no shadow prices interpreted
-  - **Allowable Ranges**: Allowable ranges mostly missing
-  - **Business Implications**: Minimal or incorrect interpretation
-  - **Professional Presentation**: Poor organization
-  - Demonstrates limited understanding of sensitivity analysis
-
-- **0 - Missing**: Sensitivity analysis missing or severely incomplete
-
-**Problem B - Prescriptive Method Execution (25 points)**
+Evaluates the complete Linear Programming analysis including model setup, Solver execution, and sensitivity analysis.
 
 - **25 - Excellent**:
-  - **Method Selection**: Appropriate prescriptive method chosen (Inventory, Aggregate Planning, Location, or Capacity) that clearly connects to stakeholder needs
-  - **Problem Setup**: All required inputs and parameters clearly defined and organized; problem is well-structured
-  - **Calculations**: All formulas and calculations are correct and clearly labeled; appropriate method applied (EOQ, Factor Rating, capacity calculations, etc.)
-  - **Results Quality**: Results are reasonable and make business sense; all key outputs displayed (EOQ and reorder point, weighted scores, capacity utilization, etc.)
-  - **Formula Visibility**: All formulas visible and easy to audit
-  - **Professional Formatting**: Worksheet is well-organized with clear sections and professional presentation
-  - Demonstrates strong understanding of the chosen prescriptive method
+  - LP model correct: objective function, decision variables, constraints all properly formulated
+  - Solver output shows optimal solution with all decision variable values
+  - Sensitivity analysis included with shadow prices correctly interpreted
+  - Business implications of binding constraints explained
+  - Professional formatting throughout
 
 - **19 - Good**:
-  - **Method Selection**: Appropriate method chosen with clear connection to stakeholder
-  - **Problem Setup**: Inputs and parameters defined; well-structured
-  - **Calculations**: Most calculations correct and labeled; method applied correctly
-  - **Results Quality**: Results are reasonable; key outputs displayed
-  - **Formula Visibility**: Most formulas visible
-  - **Professional Formatting**: Well-organized and formatted
-  - Demonstrates good understanding of the method
+  - LP model mostly correct, minor issues with constraints or sensitivity interpretation
+  - Solver output present with solution values
+  - Sensitivity analysis present with basic interpretation
+  - Good organization and labeling
 
 - **13 - Adequate**:
-  - **Method Selection**: Method chosen but connection to stakeholder could be clearer
-  - **Problem Setup**: Basic setup present; some organization issues
-  - **Calculations**: Most calculations present but may have minor errors; basic labeling
-  - **Results Quality**: Results present but may have issues; some outputs missing
-  - **Formula Visibility**: Some formulas visible
-  - **Professional Formatting**: Acceptable organization
-  - Demonstrates basic understanding of the method
+  - LP model basic but incomplete (missing sensitivity analysis or weak interpretation)
+  - Solver output present but may have issues
+  - Limited or no sensitivity interpretation
+  - Acceptable formatting
 
 - **6 - Poor**:
-  - **Method Selection**: Method choice unclear or poorly justified
-  - **Problem Setup**: Incomplete setup; poorly organized
-  - **Calculations**: Significant errors in calculations; poor labeling
-  - **Results Quality**: Results incorrect or missing key elements
-  - **Formula Visibility**: Most formulas hidden
-  - **Professional Formatting**: Poor organization
-  - Demonstrates limited understanding of the method
+  - LP model has significant errors or missing key components
+  - Solver not properly configured or solution incorrect
+  - No sensitivity analysis or completely wrong interpretation
+  - Poor organization
+
+- **0 - Missing**: Linear programming analysis missing or severely incomplete
+
+---
+
+#### PROB_B - Problem B Method (25 points)
+
+Evaluates the second prescriptive method (EOQ, Aggregate Planning, Factor Rating, or Capacity Analysis).
+
+- **25 - Excellent**:
+  - Problem B method executed correctly with all required calculations
+  - Clear interpretation of results with business context
+  - Business recommendation provided and justified
+  - Professional formatting with formulas visible
+
+- **19 - Good**:
+  - Problem B mostly correct, minor calculation or interpretation issues
+  - Good interpretation with reasonable recommendations
+  - Well-organized with most formulas visible
+
+- **13 - Adequate**:
+  - Problem B attempted but incomplete calculations or missing recommendations
+  - Basic interpretation without strong business context
+  - Acceptable organization
+
+- **6 - Poor**:
+  - Problem B has significant errors or wrong method application
+  - Little to no interpretation or incorrect conclusions
+  - Poor organization
 
 - **0 - Missing**: Problem B analysis missing or severely incomplete
 
 ---
 
-#### Presentation Clarity (30 points)
+#### SLIDES - Slide Structure & Visuals (15 points)
 
-**Slide Design & Visual Quality (10 points)**
+Evaluates slide deck completeness, structure, and visual quality.
 
-- **10 - Excellent**:
-  - All 10 slides present with professional design
-  - Every slide (except cover) has exactly ONE focused visual (specific chart/table/screenshot)
-  - Visuals are clear, appropriately sized, and easy to read
-  - Screenshots show specific model components or results, not full worksheets
-  - Consistent design, color scheme, and layout throughout
-  - Clear visual hierarchy (titles, visuals, bullets)
+- **15 - Excellent**:
+  - All 10 slides present with proper structure as specified
+  - Clear visuals on each slide (screenshots, charts, diagrams)
+  - Professional formatting throughout
+  - Consistent design and layout
 
-- **8 - Good**:
-  - 9-10 slides present with good design
-  - Most slides have one focused visual
-  - Visuals are clear and readable
-  - Mostly consistent design
-  - Most screenshots are focused
+- **11 - Good**:
+  - Most slides present and structured correctly
+  - Minor visual or formatting issues
+  - Good overall design
 
-- **6 - Adequate**:
-  - 8-9 slides present
-  - Some slides have multiple or unclear visuals
-  - Visuals are readable but basic
-  - Some design inconsistencies
-  - Some full worksheet screenshots
+- **8 - Adequate**:
+  - Missing slides or unclear structure
+  - Limited visuals or poor quality screenshots
+  - Basic formatting
 
-- **3 - Poor**:
-  - Fewer than 8 slides
-  - Multiple visuals per slide OR visuals unclear
-  - Difficult to read
-  - Inconsistent or unprofessional design
-  - Mostly full screenshots
+- **4 - Poor**:
+  - Significant slide issues, missing multiple required slides
+  - Visuals unclear or inappropriate
+  - Unprofessional appearance
 
 - **0 - Missing**: No slides or severely inadequate presentation
 
-**Takeaway Titles & Bullet Format (10 points)**
+---
 
-- **10 - Excellent**:
-  - All slides (except cover) have compelling **TAKEAWAY titles** that state the insight, not describe the slide (e.g., "Optimal Product Mix Increases Profit by $45K Monthly" NOT "Problem A Results")
-  - Slide 2: Three bullets (Stakeholder, Problem A, Problem B) as specified
-  - Slide 3: Four bullets (Objective Function, Decision Variables, Objective Coefficients, Constraints) with examples
-  - Slides 4-8: Two bullets each (Recommendation + Impact/Interpretation)
-  - Slide 9: Three bullets (Timeframe & Approach, Actions, Monitoring)
-  - Slide 10: Three bullets (Problem A Results, Problem B Results, Next Steps)
-  - All bullets are specific, actionable, and business-relevant
-  - Format is consistent across all slides
+#### TITLES - Takeaway Titles (20 points)
 
-- **8 - Good**:
-  - Most slide titles state insights; a few may be descriptive
-  - Most slides follow required bullet format
-  - Bullets are mostly specific and relevant
-  - Format is mostly consistent
+Evaluates whether slide titles communicate insights rather than just describing content.
 
-- **6 - Adequate**:
-  - Some slide titles are descriptive rather than insight-focused
-  - Bullet format inconsistently applied
-  - Bullets are somewhat generic or vague
-  - Format varies across slides
+- **20 - Excellent**:
+  - All slides have takeaway titles that communicate key insights
+  - Titles state the "so what" (e.g., "Optimal Product Mix Increases Profit by $45K Monthly")
+  - Titles are specific, quantified where appropriate, and business-relevant
 
-- **3 - Poor**:
-  - Most titles are descriptive labels rather than insights
-  - Bullet format rarely followed
-  - Bullets are generic or irrelevant
-  - Inconsistent format
+- **15 - Good**:
+  - Most slides have takeaway titles, some are descriptive rather than insightful
+  - Good insight communication overall
+  - Minor instances of descriptive titles
 
-- **0 - Missing**: Severely inadequate titles and bullets
+- **10 - Adequate**:
+  - Few takeaway titles, mostly descriptive headings
+  - Titles describe what's on the slide rather than the insight
+  - Limited business relevance in titles
 
-**Professional Communication & Completeness (10 points)**
+- **5 - Poor**:
+  - No takeaway titles, only labels like "LP Results" or "Problem B Analysis"
+  - Titles are generic placeholders
+  - No insight communication
 
-- **10 - Excellent**:
-  - **Problem Statements**: Both Problem A and Problem B clearly stated and connected to stakeholder needs
-  - **Completeness**: All required components present in both Excel and slides; no missing elements
-  - **Labels & Annotations**: Clear labels throughout Excel; annotations explain calculations and interpret results
-  - **Organization**: Logical flow in slides; professional structure in Excel with clear sections
-  - **Formatting**: Consistent professional formatting; proper table formatting; no clutter
-  - **File Naming**: Correct file names used (`milestone-03-fname-lname.xlsx` and `milestone-03-slides-fname-lname.pdf`)
-  - **Writing Quality**: No typos or grammatical errors; clear and concise communication
+- **0 - Missing**: No titles or severely inadequate titling
 
-- **8 - Good**:
-  - Problem statements clear and connected to stakeholder
-  - All major components present; may have minor omissions
-  - Good labels and some annotations
-  - Clear organization and structure
-  - Good formatting with minor inconsistencies
-  - File naming correct
-  - Few typos; good communication
+---
 
-- **6 - Adequate**:
-  - Problem statements present but could be clearer
-  - Some required components missing
-  - Basic labels; limited annotations
-  - Acceptable organization
-  - Adequate but inconsistent formatting
-  - File naming partially correct
-  - Some typos; adequate communication
+#### POLISH - Professional Polish (15 points)
 
-- **3 - Poor**:
-  - Problem statements unclear or missing
-  - Multiple missing components
-  - Minimal labels and annotations
-  - Poor organization
-  - Unprofessional or inconsistent formatting
-  - Incorrect file naming
-  - Multiple typos; unclear communication
+Evaluates overall professional quality, file naming, formatting, and attention to detail.
 
-- **0 - Missing**: Severely incomplete or unprofessional work
+- **15 - Excellent**:
+  - Professional polish throughout Excel and slides
+  - Proper file naming (`milestone-03-fname-lname.xlsx` and `milestone-03-slides-fname-lname.pdf`)
+  - PDF format for slides
+  - No typos or grammatical errors
+  - Clean, organized presentation
+
+- **11 - Good**:
+  - Mostly polished, minor issues with naming or formatting
+  - Good overall quality
+  - Few minor errors
+
+- **8 - Adequate**:
+  - Basic submission, noticeable formatting issues
+  - Some file naming issues
+  - Several typos or errors
+
+- **4 - Poor**:
+  - Unprofessional appearance
+  - Wrong file format or incorrect naming
+  - Many errors throughout
+
+- **0 - Missing**: Severely unprofessional or incomplete submission
 
 ---
 
