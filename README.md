@@ -14,47 +14,107 @@ A comprehensive template for creating course syllabi with integrated study guide
 ## Creating a New Course
 
 ### Step 1: Create Repository from Template
-1. Click the green **"Use this template"** button on GitHub
-2. Name your new repository (e.g., `bcor-3750-fall-2025`)
-3. Choose the `LMU-ISBA` organization as the owner
-4. Click **"Create repository"**
 
-### Step 2: Clone and Setup
+1. Go to [github.com/LMU-ISBA/syllabus](https://github.com/LMU-ISBA/syllabus)
+2. Click the green **"Use this template"** button
+3. Select **"Create a new repository"**
+4. Configure:
+   - **Owner**: `LMU-ISBA`
+   - **Repository name**: Use format `course-code-semester` (e.g., `bcor-3750-fall-2025`)
+   - **Visibility**: Public (for GitHub Pages) or Private
+5. Click **"Create repository"**
+
+### Step 2: Clone and Link to Template
+
 ```bash
 # Clone your new course repository
-git clone https://github.com/LMU-ISBA/your-course-repo.git
-cd your-course-repo
+git clone https://github.com/LMU-ISBA/bcor-3750-fall-2025.git
+cd bcor-3750-fall-2025
 
 # Link to template for future updates
 git remote add template https://github.com/LMU-ISBA/syllabus.git
+```
 
-# Run the setup script (Phase 1)
+### Step 3: Run Setup Script (Phase 1)
+
+```bash
 ./scripts/setup-course.sh
 ```
 
-### Step 3: Complete Manual Edits (Phase 2)
-The setup script handles core info. You'll still need to edit:
-- **index.html**: Schedule, grading weights, policies, learning objectives
-- **interviews/*.md**: Study guide content, sample questions
-- **project/*.md**: Project details, milestone rubrics
-- **gpts/**/*.md**: Domain-specific customizations
-- **images/**: Add `header.jpg` for syllabus header
+The script will prompt for course-specific information:
 
-### Step 4: Commit and Deploy
+| Prompt | Default | Example |
+|--------|---------|---------|
+| Course code | — | BCOR 3750 |
+| Course name | — | Analytics in Operations |
+| Semester | — | Fall 2025 |
+| Year | Current year | 2025 |
+| Instructor name | Greg Lontok | — |
+| Instructor email | gregory.lontok@lmu.edu | — |
+| Institution | Loyola Marymount University | — |
+| Days/times | — | MW 2:30-3:45pm |
+| Classroom | — | Hilton 100 |
+| Office location | Hilton 114 | — |
+| Office hours | — | MW 4-5pm |
+
+Press Enter to accept defaults or type a new value.
+
+### Step 4: Complete Manual Edits (Phase 2)
+
+The setup script handles core identifiers. You'll still need to customize:
+
+**Syllabus (`index.html`)**:
+- Course description and learning objectives
+- Weekly schedule (topics, readings, assignments)
+- Grading weights and scale
+- Policies (attendance, late work, academic integrity, AI usage)
+- Campus resources and TA information
+
+**Study Guides (`interviews/*.md`)**:
+- Topics, concepts, and frameworks for each exam
+- Sample questions and evaluation criteria
+- Interview dates and format details
+
+**Project (`project/*.md`)**:
+- Project description and objectives
+- Milestone deliverables and rubrics
+- Submission guidelines
+
+**GPTs (`gpts/**/*.md`)**:
+- Domain-specific instructions
+- Upload knowledge files to OpenAI
+
+**Images (`images/`)**:
+- Add `header.jpg` for syllabus header background
+
+### Step 5: Commit and Deploy
+
 ```bash
 git add -A
-git commit -m "Configure: COURSE_CODE SEMESTER"
+git commit -m "Configure: BCOR 3750 Fall 2025"
 git push
 ```
-GitHub Pages will automatically deploy your syllabus.
+
+GitHub Pages will automatically deploy your syllabus website.
 
 ### Pulling Template Updates
-When the template improves, pull updates into your course repo:
+
+When the template repository is improved, pull updates into your course:
+
 ```bash
+# Fetch latest template changes
 git fetch template
+
+# Merge into your course (may require conflict resolution)
 git merge template/main
-# Resolve any conflicts, then commit
+
+# If conflicts occur, resolve them, then:
+git add -A
+git commit -m "Merge template updates"
+git push
 ```
+
+**Tip**: Pull template updates before each semester to get improvements.
 
 ## Repository Structure
 
