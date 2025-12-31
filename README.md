@@ -87,7 +87,16 @@ The setup script handles core identifiers. You'll still need to customize:
 **Images (`images/`)**:
 - Add `header.jpg` for syllabus header background
 
-### Step 5: Commit and Deploy
+### Step 5: Verify Against Checklist
+
+Before publishing, review your syllabus against the CFD requirements:
+
+1. Open `docs/cfd-syllabus-checklist.pdf`
+2. Verify all required elements are present in `index.html`
+3. Check policies meet institutional standards
+4. Confirm accessibility and clarity
+
+### Step 6: Commit and Deploy
 
 ```bash
 git add -A
@@ -127,6 +136,10 @@ syllabus/
 │
 ├── scripts/
 │   └── setup-course.sh         # Interactive setup script
+│
+├── docs/                        # Reference materials
+│   ├── README.md               # Guide to reference documents
+│   └── cfd-syllabus-checklist.pdf  # LMU syllabus requirements
 │
 ├── images/                      # Course images
 │   └── .gitkeep                # Add header.jpg for syllabus
