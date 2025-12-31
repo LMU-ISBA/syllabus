@@ -11,19 +11,50 @@ A comprehensive template for creating course syllabi with integrated study guide
   - Dataset Generator GPT (for student project data)
   - Interview Coach GPT (for interview practice)
 
-## Quick Start
+## Creating a New Course
 
-### 1. Fork/Clone This Repository
+### Step 1: Create Repository from Template
+1. Click the green **"Use this template"** button on GitHub
+2. Name your new repository (e.g., `bcor-3750-fall-2025`)
+3. Choose the `LMU-ISBA` organization as the owner
+4. Click **"Create repository"**
+
+### Step 2: Clone and Setup
 ```bash
-git clone https://github.com/YOUR_USERNAME/syllabus.git
-cd syllabus
+# Clone your new course repository
+git clone https://github.com/LMU-ISBA/your-course-repo.git
+cd your-course-repo
+
+# Link to template for future updates
+git remote add template https://github.com/LMU-ISBA/syllabus.git
+
+# Run the setup script (Phase 1)
+./scripts/setup-course.sh
 ```
 
-### 2. Customize for Your Course
-Replace `{{PLACEHOLDER}}` values throughout all files with your course-specific information.
+### Step 3: Complete Manual Edits (Phase 2)
+The setup script handles core info. You'll still need to edit:
+- **index.html**: Schedule, grading weights, policies, learning objectives
+- **interviews/*.md**: Study guide content, sample questions
+- **project/*.md**: Project details, milestone rubrics
+- **gpts/**/*.md**: Domain-specific customizations
+- **images/**: Add `header.jpg` for syllabus header
 
-### 3. Deploy
-Enable GitHub Pages in repository settings to publish your syllabus website.
+### Step 4: Commit and Deploy
+```bash
+git add -A
+git commit -m "Configure: COURSE_CODE SEMESTER"
+git push
+```
+GitHub Pages will automatically deploy your syllabus.
+
+### Pulling Template Updates
+When the template improves, pull updates into your course repo:
+```bash
+git fetch template
+git merge template/main
+# Resolve any conflicts, then commit
+```
 
 ## Repository Structure
 
@@ -33,6 +64,9 @@ syllabus/
 ├── index.html                   # Syllabus website template
 ├── LICENSE                      # MIT License
 ├── .gitignore
+│
+├── scripts/
+│   └── setup-course.sh         # Interactive setup script
 │
 ├── images/                      # Course images
 │   └── .gitkeep                # Add header.jpg for syllabus
