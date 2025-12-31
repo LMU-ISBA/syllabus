@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BCOR 3750 - Analytics in Operations and Supply Chain Management | Fall 2025</title>
+    <!-- TEMPLATE: Update title with your course code and name -->
+    <title>{{COURSE_CODE}} - {{COURSE_NAME}} | {{SEMESTER}}</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
@@ -18,7 +19,7 @@
             background: #f8f9fa;
             min-height: 100vh;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -26,56 +27,52 @@
             min-height: 100vh;
             box-shadow: 0 0 30px rgba(0,0,0,0.1);
         }
-        
+
+        /* TEMPLATE: Update primary color to match your institution */
+        :root {
+            --primary-color: #0076A5;
+            --primary-dark: #005a7d;
+            --accent-color: #ff6b35;
+        }
+
         .header {
-            background: linear-gradient(rgba(0, 118, 165, 0.85), rgba(0, 118, 165, 0.85)), 
-                        url('images/warehouse-boxes.jpg') center/cover;
+            background: linear-gradient(rgba(0, 118, 165, 0.85), rgba(0, 118, 165, 0.85)),
+                        url('images/header.jpg') center/cover;
             color: white;
-            padding: 1.5rem 2rem;
+            padding: 2rem;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-            min-height: 200px;
+            min-height: 220px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
-        
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 118, 165, 0.1);
-        }
-        
+
         .header-content {
             position: relative;
             z-index: 2;
         }
-        
+
         .course-title {
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
-        
+
         .course-subtitle {
             font-size: 1.2rem;
             opacity: 0.9;
             margin-bottom: 1rem;
         }
-        
+
         .course-info-bar {
             display: flex;
-            flex-direction: column;
+            flex-wrap: wrap;
             gap: 0.5rem;
+            justify-content: center;
             margin-top: 1rem;
         }
-        
+
         .info-item {
             background: rgba(255,255,255,0.15);
             padding: 0.5rem 1rem;
@@ -83,14 +80,17 @@
             font-size: 0.95rem;
             backdrop-filter: blur(10px);
         }
-        
+
         .navigation {
-            background: #0076A5;
+            background: var(--primary-color);
             padding: 1rem 2rem;
             text-align: center;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
-        
+
         .nav-link {
             color: white;
             text-decoration: none;
@@ -98,738 +98,137 @@
             border-radius: 5px;
             transition: background 0.3s;
             display: inline-block;
-            margin: 0 0.5rem;
-            font-weight: 500;
+            margin: 0.25rem;
         }
-        
+
         .nav-link:hover {
             background: rgba(255,255,255,0.2);
         }
-        
-        .content {
-            padding: 0;
+
+        .main-content {
+            padding: 2rem;
         }
-        
-        .hero-section {
-            background: linear-gradient(135deg, #0076A5 0%, #005280 100%);
-            color: white;
-            padding: 4rem 2rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="1" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
-            opacity: 0.3;
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        .hero-question {
-            font-size: 2.8rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        
-        .hero-subtitle {
-            font-size: 1.2rem;
-            margin-bottom: 3rem;
-            opacity: 0.9;
-            line-height: 1.6;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .supporting-questions {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .question-card {
-            background: rgba(255,255,255,0.1);
-            padding: 2rem 1.5rem;
-            border-radius: 12px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 200px;
-        }
-        
-        .question-card:hover {
-            background: rgba(255,255,255,0.15);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-        
-        .question-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-        
-        .question-card h3 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            line-height: 1.5;
-            margin: 0;
-            text-align: center;
-            max-width: 280px;
-            word-wrap: break-word;
-            hyphens: auto;
-            text-wrap: balance;
-        }
-        
+
         .section {
-            margin-bottom: 3rem;
-            padding: 0 2rem;
+            margin-bottom: 2.5rem;
         }
-        
-        #course-info {
-            margin-top: 3rem;
-        }
-        
+
         .section-title {
-            font-size: 1.8rem;
-            color: #2c3e50;
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 3px solid #0076A5;
-            position: relative;
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -3px;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background: #0076A5;
-        }
-        
-        .card {
-            background: white;
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            border: 1px solid #C8C9C7;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-        }
-        
-        .card ul {
-            margin: 1rem 0;
-            padding-left: 1.5rem;
-        }
-        
-        .card ul li {
-            margin-bottom: 0.5rem;
-        }
-        
-        .card:hover {
-            border-color: #0076A5;
-            box-shadow: 0 4px 12px rgba(171, 12, 47, 0.1);
-        }
-        
-        .instructor-card {
-            background: #0076A5;
-            color: white;
-            text-align: center;
-        }
-        
-        .instructor-name {
             font-size: 1.5rem;
-            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            font-weight: 600;
+            color: var(--primary-dark);
             margin-bottom: 0.5rem;
         }
-        
-        .instructor-name a {
-            color: inherit;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border-bottom: 2px solid transparent;
+
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
         }
-        
-        .instructor-name a:hover {
-            border-bottom: 2px solid rgba(255,255,255,0.8);
-            transform: translateY(-1px);
+
+        .schedule-table th,
+        .schedule-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
         }
-        
+
+        .schedule-table th {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .schedule-table tr:hover {
+            background: #f0f0f0;
+        }
+
+        .grading-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .grading-item:last-child {
+            border-bottom: none;
+            font-weight: bold;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+        }
+
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-        
-        .contact-item {
-            background: rgba(255,255,255,0.1);
-            padding: 0.75rem;
-            border-radius: 6px;
-            backdrop-filter: blur(10px);
-            text-align: center;
-        }
-        
-        .contact-label {
-            font-weight: 600;
-            font-size: 0.85rem;
-            margin-bottom: 0.25rem;
-            opacity: 0.9;
-        }
-        
-        .schedule-table {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .schedule-header {
-            display: grid;
-            grid-template-columns: 80px 100px 60px 2fr 180px;
-            background: #0076A5;
-            color: white;
-            font-weight: 600;
-            border-bottom: 2px solid #005280;
-        }
-        
-        .schedule-col {
-            padding: 1rem 0.75rem;
-            border-right: 1px solid rgba(255,255,255,0.2);
-        }
-        
-        .schedule-col:last-child {
-            border-right: none;
-        }
-        
-        .schedule-row {
-            display: grid;
-            grid-template-columns: 80px 100px 60px 2fr 180px;
-            border-bottom: 1px solid #f0f0f0;
-            transition: background-color 0.2s ease;
-        }
-        
-        .schedule-row:hover {
-            background-color: #f8f9fa;
-        }
-        
-        .schedule-row .schedule-col {
-            padding: 0.75rem;
-            border-right: 1px solid #f0f0f0;
-            font-size: 0.9rem;
-        }
-        
-        .schedule-section {
-            background: #C8C9C7;
-            padding: 0.5rem 0.75rem;
-            border-bottom: 2px solid #0076A5;
-        }
-        
-        .schedule-section-title {
-            font-weight: 700;
-            color: #2c3e50;
-            font-size: 1rem;
-        }
-        
-        .schedule-row.no-class {
-            background-color: #f8f9fa;
-            color: #6c757d;
-            font-style: italic;
-        }
-        
-        .schedule-row.midterm {
-            background-color: #fff3cd;
-            border-left: 4px solid #ffc107;
-        }
-        
-        .schedule-row.final {
-            background-color: #d4edda;
-            border-left: 4px solid #28a745;
-        }
-        
-        .schedule-row.zoom {
-            background-color: #e7f3ff;
-            border-left: 4px solid #0076A5;
-        }
-        
-        .grade-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1rem;
         }
-        
-        .grade-item {
-            background: white;
-            color: #000000;
-            padding: 1.2rem 0.8rem;
-            border-radius: 8px;
-            border: 2px solid #0076A5;
-            text-align: center;
-            word-wrap: break-word;
-            hyphens: auto;
-            min-height: 120px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-        
-        .grade-percentage {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            line-height: 1.1;
-            color: #0076A5;
-        }
-        
-        .points-table {
-            margin-top: 1rem;
-        }
-        
-        .points-header {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            background: #0076A5;
-            color: white;
-            font-weight: 600;
-            border-radius: 6px 6px 0 0;
-        }
-        
-        .points-row {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            border-bottom: 1px solid #f0f0f0;
-        }
-        
-        .points-total {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            background: #C8C9C7;
-            font-weight: 600;
-            border-radius: 0 0 6px 6px;
-        }
-        
-        .points-col {
-            padding: 0.75rem;
-            text-align: center;
-            border-right: 1px solid rgba(255,255,255,0.2);
-        }
-        
-        .points-col:first-child {
-            text-align: left;
-        }
-        
-        .points-col:last-child {
-            border-right: none;
-        }
-        
-        .points-row .points-col {
-            border-right: 1px solid #f0f0f0;
-        }
-        
-        .grade-scale-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 0.75rem;
-            margin-top: 1rem;
-        }
-        
-        .grade-scale-item {
-            text-align: center;
-            padding: 1rem 0.5rem;
-            border-radius: 8px;
-            border: 2px solid transparent;
-            transition: all 0.3s ease;
-        }
-        
-        .grade-letter {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 0.25rem;
-        }
-        
-        .grade-range {
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-        
-        .grade-a, .grade-a-minus {
-            background: #d4edda;
-            color: #155724;
-            border-color: #28a745;
-        }
-        
-        .grade-b-plus, .grade-b, .grade-b-minus {
-            background: #cce7ff;
-            color: #004085;
-            border-color: #0076A5;
-        }
-        
-        .grade-c-plus, .grade-c, .grade-c-minus {
-            background: #fff3cd;
-            color: #856404;
-            border-color: #ffc107;
-        }
-        
-        .grade-d {
-            background: #fde2e4;
-            color: #721c24;
-            border-color: #fd7e14;
-        }
-        
-        .grade-f {
-            background: #f8d7da;
-            color: #721c24;
-            border-color: #dc3545;
-        }
-        
-        .resource-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-        
-        .resource-card {
-            background: white;
-            border: 2px solid #C8C9C7;
-            border-radius: 12px;
+
+        .contact-card {
+            background: #f8f9fa;
             padding: 1.5rem;
-            transition: all 0.3s ease;
-            word-wrap: break-word;
-            hyphens: auto;
-        }
-        
-        .resource-card:hover {
-            border-color: #0076A5;
-            transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.2);
-        }
-        
-        .resource-icon {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: #0076A5;
-        }
-        
-        
-        .success-toolkit {
-            background: #C8C9C7;
-            color: #000000;
-            padding: 2rem;
-            border-radius: 8px;
-            margin: 2rem 0;
-        }
-        
-        .toolkit-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-        
-        .toolkit-item {
-            background: rgba(255,255,255,0.9);
-            padding: 1rem;
-            border-radius: 8px;
+            border-radius: 10px;
             text-align: center;
         }
-        
-        .footer {
-            background: #2c3e50;
+
+        .contact-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            background: #333;
             color: white;
             text-align: center;
-            padding: 2rem;
+            padding: 1.5rem;
+            margin-top: 2rem;
         }
-        
+
         @media (max-width: 768px) {
             .course-title {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
-            
-            .hero-section {
-                padding: 3rem 1rem;
-            }
-            
-            .hero-question {
-                font-size: 2rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1rem;
-                margin-bottom: 2rem;
-            }
-            
-            .supporting-questions {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .question-card {
-                padding: 1.5rem 1rem;
-                min-height: 180px;
-            }
-            
-            .question-card h3 {
-                max-width: 250px;
-                font-size: 1rem;
-            }
-            
-            .question-icon {
-                font-size: 2.5rem;
-            }
-            
-            
-            
-            .content {
+
+            .main-content {
                 padding: 1rem;
             }
-            
-            .schedule-header,
-            .schedule-row {
-                grid-template-columns: 50px 70px 40px 2fr 140px;
-                font-size: 0.8rem;
-            }
-            
-            .schedule-col {
-                padding: 0.5rem 0.4rem;
-            }
-            
-            .schedule-row .schedule-col {
-                padding: 0.6rem 0.4rem;
-                font-size: 0.8rem;
-            }
-            
-            .course-info-bar {
-                flex-direction: column;
-                gap: 0.3rem;
-            }
-            
-            .info-item {
-                font-size: 0.85rem;
-                padding: 0.4rem 0.8rem;
-            }
-            
-            .grade-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 0.8rem;
-            }
-            
-            .resource-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .toolkit-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .grade-item {
-                padding: 1rem 0.6rem;
-                min-height: 100px;
-            }
-            
-            .grade-percentage {
-                font-size: 1.5rem;
-            }
-            
-            .contact-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 0.75rem;
-            }
-            
-            .contact-item {
-                padding: 0.5rem;
-            }
-            
-            .contact-label {
-                font-size: 0.75rem;
-            }
-            
-            .points-header,
-            .points-row,
-            .points-total {
-                grid-template-columns: 2fr 0.8fr 0.8fr 0.8fr;
-                font-size: 0.85rem;
-            }
-            
-            .points-col {
-                padding: 0.5rem 0.3rem;
-            }
-            
-            .grade-scale-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 0.5rem;
-            }
-            
-            .grade-scale-item {
-                padding: 0.75rem 0.4rem;
-            }
-            
-            .grade-letter {
-                font-size: 1.2rem;
-            }
-            
-            .grade-range {
-                font-size: 0.8rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .grade-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .meta-item {
-                padding: 0.8rem;
-            }
-            
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .grade-scale-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        .print-only {
-            display: none;
-        }
-        
-        .web-only {
-            display: block;
-        }
-        
-        @media print {
-            body {
-                background: white !important;
-                font-size: 11pt;
-                line-height: 1.4;
-                color: #000 !important;
-            }
-            
-            .container {
-                box-shadow: none !important;
-                max-width: none !important;
-            }
-            
-            .header {
-                background: #888B8D !important;
-                color: white !important;
-                page-break-after: avoid;
-                -webkit-print-color-adjust: exact;
-                color-adjust: exact;
-            }
-            
-            
-            .web-only {
-                display: none !important;
-            }
-            
-            .print-only {
-                display: block !important;
-            }
-            
-            .card {
-                break-inside: avoid;
-                background: #f8f9fa !important;
-                border: 1px solid #dee2e6 !important;
-                margin-bottom: 10pt !important;
-                padding: 12pt !important;
-                -webkit-print-color-adjust: exact;
-                color-adjust: exact;
-            }
-            
-            .instructor-card {
-                background: #888B8D !important;
-                color: white !important;
-                -webkit-print-color-adjust: exact;
-                color-adjust: exact;
-            }
-            
-            .success-toolkit {
-                background: #0076A5 !important;
-                -webkit-print-color-adjust: exact;
-                color-adjust: exact;
-                page-break-inside: avoid;
-            }
-            
-            .grade-item {
-                background: #0076A5 !important;
-                color: white !important;
-                -webkit-print-color-adjust: exact;
-                color-adjust: exact;
-            }
-            
-            .section-title {
-                page-break-after: avoid;
-                margin-top: 20pt;
-                font-size: 14pt !important;
-            }
-            
+
             .schedule-table {
-                font-size: 10pt !important;
-                break-inside: avoid;
+                font-size: 0.9rem;
             }
-            
-            .schedule-header,
-            .schedule-row {
-                grid-template-columns: 50px 70px 40px 2fr 140px !important;
+        }
+
+        @media print {
+            .navigation {
+                display: none;
             }
-            
-            
-            .footer {
-                background: #888B8D !important;
-                color: white !important;
+
+            .header {
+                background: var(--primary-color) !important;
                 -webkit-print-color-adjust: exact;
-                color-adjust: exact;
-                page-break-before: auto;
+                print-color-adjust: exact;
             }
-            
-            h1, h2, h3 {
-                page-break-after: avoid;
-            }
-            
-            p, li {
-                orphans: 3;
-                widows: 3;
-            }
-            
-            .course-meta {
-                grid-template-columns: repeat(2, 1fr) !important;
-                gap: 10pt !important;
-            }
-            
-            .grade-grid {
-                grid-template-columns: repeat(3, 1fr) !important;
-            }
-            
-            .resource-grid {
-                grid-template-columns: repeat(2, 1fr) !important;
-            }
-            
-            .toolkit-grid {
-                grid-template-columns: repeat(2, 1fr) !important;
+
+            .section {
+                page-break-inside: avoid;
             }
         }
     </style>
@@ -838,670 +237,197 @@
     <div class="container">
         <header class="header">
             <div class="header-content">
-                <h1 class="course-title">BCOR 3750</h1>
-                <p class="course-subtitle">Analytics in Operations and Supply Chain Management</p>
+                <!-- TEMPLATE: Update with your course information -->
+                <h1 class="course-title">{{COURSE_CODE}}</h1>
+                <p class="course-subtitle">{{COURSE_NAME}}</p>
                 <div class="course-info-bar">
-                    <span class="info-item">Fall 2025 • Section 01</span>
-                    <span class="info-item">Tue, Thu 8:00-9:40 AM • Hilton 113</span>
+                    <span class="info-item">{{SEMESTER}}</span>
+                    <span class="info-item">{{DAYS_TIMES}}</span>
+                    <span class="info-item">{{LOCATION}}</span>
                 </div>
             </div>
         </header>
-        
+
         <nav class="navigation">
-            <a href="frameworks.html" class="nav-link">📚 Course Frameworks</a>
+            <a href="#overview" class="nav-link">Overview</a>
+            <a href="#schedule" class="nav-link">Schedule</a>
+            <a href="#grading" class="nav-link">Grading</a>
+            <a href="#policies" class="nav-link">Policies</a>
+            <a href="#resources" class="nav-link">Resources</a>
+            <a href="#contact" class="nav-link">Contact</a>
         </nav>
 
-        <main class="content">
-            <section class="hero-section">
-                <div class="hero-content">
-                    <h1 class="hero-question">How do organizations maximize<br>production efficiency, business effectiveness, and customer value?</h1>
-                    <p class="hero-subtitle">This is why you're here - to answer this question. With this knowledge, you can increase profit and customer satisfaction while producing goods and services. The course deliverables will answer this question in one form or another!</p>
-                    
-                    <div class="supporting-questions">
-                        <div class="question-card">
-                            <div class="question-icon">📊</div>
-                            <h3>How can I turn data into better decisions?</h3>
-                        </div>
-                        <div class="question-card">
-                            <div class="question-icon">💡</div>
-                            <h3>What's the smartest way to increase profit while decreasing cost without sacrificing quality?</h3>
-                        </div>
-                        <div class="question-card">
-                            <div class="question-icon">🔗</div>
-                            <h3>How do leading companies design and optimize their supply chains?</h3>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="course-info" class="section">
-                
+        <main class="main-content">
+            <!-- COURSE OVERVIEW -->
+            <section id="overview" class="section">
+                <h2 class="section-title">Course Overview</h2>
                 <div class="card">
-                    <h3>Course Description</h3>
-                    <p>This course introduces students to decision-making and model building in the management of operations which create products and/or services. The principles of operations management apply throughout the world to all productive enterprises. Efficient production methods require the effective application of the concepts, tools, and techniques that are covered in this course. Hands-on learning is an important feature of the course. Project case analyses will require students to collect, organize and analyze data to provide recommendations for how to improve the performance of a specified operating or supply chain system.</p>
+                    <h3 class="card-title">Course Description</h3>
+                    <p>{{COURSE_DESCRIPTION}}</p>
                 </div>
 
                 <div class="card">
-                    <h3>Prerequisites</h3>
-                    <p>AIMS or BCOR 2710 or ACCT 3140, ECON 2300 or MATH 104, MATH 112 or 131, all minimum grade of C</p>
-                </div>
-
-
-            </section>
-
-            <section id="learning-outcomes" class="section">
-                <h2 class="section-title">Learning Outcomes</h2>
-                
-                <div class="card">
-                    <h3>CBA Core Learning Outcomes</h3>
-                    <p>This course contributes to student achievement of the following CBA core learning outcomes:</p>
+                    <h3 class="card-title">Learning Objectives</h3>
                     <ul>
-                        <li>Students will be able to analyze business processes to better serve stakeholders.</li>
-                        <li>Students will be able to frame a business problem and collect, organize and analyze qualitative and quantitative data to report and communicate insights for decision-making.</li>
-                        <li>Students will be able to apply information technology to solve business problems</li>
-                        <li>Students will demonstrate critical thinking skills by defining, modeling, analyzing and evaluating complex business problems</li>
+                        <li>{{LEARNING_OBJECTIVE_1}}</li>
+                        <li>{{LEARNING_OBJECTIVE_2}}</li>
+                        <li>{{LEARNING_OBJECTIVE_3}}</li>
+                        <li>{{LEARNING_OBJECTIVE_4}}</li>
                     </ul>
                 </div>
-                
+
                 <div class="card">
-                    <h3>Course Learning Outcomes</h3>
-                    <p>Upon completion of this course students are expected to successfully meet the following operations & supply chain management analytics course learning outcomes:</p>
+                    <h3 class="card-title">Required Materials</h3>
                     <ul>
-                        <li>Understand the common principles of production and operations management.</li>
-                        <li>Apply strategies dealing with various problems encountered in the production of goods and services.</li>
-                        <li>Perform data processing and visualization.</li>
-                        <li>Use analytical techniques and a statistical package to support business decisions.</li>
-                        <li>Report and communicate insights and provide recommendations for an operations-related problem.</li>
+                        <li>{{TEXTBOOK_OR_MATERIALS}}</li>
+                        <li>{{SOFTWARE_OR_TOOLS}}</li>
                     </ul>
                 </div>
             </section>
 
-            <section id="instructor" class="section">
-                <h2 class="section-title">Instructor</h2>
-                <div class="card">
-                    <h3 style="font-size: 1.8rem; font-weight: 600; margin-bottom: 1.2rem; color: #2d3748;">Professor Greg Lontok</h3>
-                    
-                    <p style="margin-bottom: 2rem; font-size: 1rem; line-height: 1.6; color: #4a5568;">With my business and tech background, I will do my best to equip you with the skills and tools to make a meaningful impact in any organization.</p>
-                    
-                    <div style="display: grid; grid-template-columns: 1fr; gap: 0.8rem;">
-                        <div style="display: flex; align-items: flex-start; padding: 0.5rem 0;">
-                            <span style="font-weight: 600; color: #2d3748; min-width: 110px; margin-right: 0.5rem;">Email:</span>
-                            <div>
-                                <a href="mailto:gregory.lontok@lmu.edu" style="color: #0076A5; text-decoration: none; font-weight: 500;">gregory.lontok@lmu.edu</a><br>
-                                <small style="color: #718096; font-size: 0.875rem;">Teams preferred</small>
-                            </div>
-                        </div>
-                        
-                        <div style="display: flex; align-items: center; padding: 0.5rem 0;">
-                            <span style="font-weight: 600; color: #2d3748; min-width: 110px; margin-right: 0.5rem;">Office:</span>
-                            <span style="color: #4a5568;">Hilton 114</span>
-                        </div>
-                        
-                        <div style="display: flex; align-items: flex-start; padding: 0.5rem 0;">
-                            <span style="font-weight: 600; color: #2d3748; min-width: 110px; margin-right: 0.5rem;">Office Hours:</span>
-                            <div>
-                                <span style="color: #4a5568;">By appointment on Zoom</span><br>
-                                <a href="https://calendly.com/greg-lontok" target="_blank" rel="noopener noreferrer" style="color: #0076A5; text-decoration: none; font-weight: 500;">Schedule on Calendly</a>
-                            </div>
-                        </div>
-                        
-                        <div style="display: flex; align-items: center; padding: 0.5rem 0;">
-                            <span style="font-weight: 600; color: #2d3748; min-width: 110px; margin-right: 0.5rem;">LinkedIn:</span>
-                            <a href="https://www.linkedin.com/in/lontok" target="_blank" rel="noopener noreferrer" style="color: #0076A5; text-decoration: none; font-weight: 500;">https://www.linkedin.com/in/lontok</a>
-                        </div>
-                        
-                        <div style="display: flex; align-items: center; padding: 0.5rem 0;">
-                            <span style="font-weight: 600; color: #2d3748; min-width: 110px; margin-right: 0.5rem;">Zoom Room:</span>
-                            <a href="https://lmula.zoom.us/my/lontok" target="_blank" rel="noopener noreferrer" style="color: #0076A5; text-decoration: none; font-weight: 500;">https://lmula.zoom.us/my/lontok</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
+            <!-- SCHEDULE -->
             <section id="schedule" class="section">
                 <h2 class="section-title">Course Schedule</h2>
-                
-                <div class="schedule-table">
-                    <div class="schedule-header">
-                        <div class="schedule-col">Week</div>
-                        <div class="schedule-col">Date</div>
-                        <div class="schedule-col">Day</div>
-                        <div class="schedule-col">Topic</div>
-                        <div class="schedule-col">Due</div>
-                    </div>
-                    
-                    <div class="schedule-section">
-                        <div class="schedule-section-title">Analytics Strategy</div>
-                    </div>
-                    
-                    <div class="schedule-row">
-                        <div class="schedule-col">1</div>
-                        <div class="schedule-col">Aug 26</div>
-                        <div class="schedule-col">Tue</div>
-                        <div class="schedule-col">Intro to Operations & Supply Chain Analytics</div>
-                        <div class="schedule-col"></div>
-                    </div>
-                    <div class="schedule-row">
-                        <div class="schedule-col">1</div>
-                        <div class="schedule-col">Aug 28</div>
-                        <div class="schedule-col">Thu</div>
-                        <div class="schedule-col">Productivity and AI Productivity</div>
-                        <div class="schedule-col"></div>
-                    </div>
-                    <div class="schedule-row">
-                        <div class="schedule-col">2</div>
-                        <div class="schedule-col">Sep 02</div>
-                        <div class="schedule-col">Tue</div>
-                        <div class="schedule-col">Analytics Strategy</div>
-                        <div class="schedule-col"></div>
-                    </div>
-                    <div class="schedule-row">
-                        <div class="schedule-col">2</div>
-                        <div class="schedule-col">Sep 04</div>
-                        <div class="schedule-col">Thu</div>
-                        <div class="schedule-col">Operations & Supply Chain Metrics</div>
-                        <div class="schedule-col">Lesson Exercises 01</div>
-                    </div>
-
-                    <div class="schedule-section">
-                        <div class="schedule-section-title">Data Quality & Data Preparation</div>
-                    </div>
-
-                    <div class="schedule-row">
-                        <div class="schedule-col">3</div>
-                        <div class="schedule-col">Sep 09</div>
-                        <div class="schedule-col">Tue</div>
-                        <div class="schedule-col">Data Quality: Availability, Accuracy, Completeness, Consistency</div>
-                        <div class="schedule-col"></div>
-                    </div>
-                    <div class="schedule-row">
-                        <div class="schedule-col">3</div>
-                        <div class="schedule-col">Sep 11</div>
-                        <div class="schedule-col">Thu</div>
-                        <div class="schedule-col">Data Quality: Validity, Uniqueness, and Timeliness</div>
-                        <div class="schedule-col">Lesson Exercises 02</div>
-                    </div>
-
-                    <div class="schedule-row">
-                        <div class="schedule-col">4</div>
-                        <div class="schedule-col">Sep 16</div>
-                        <div class="schedule-col">Tue</div>
-                        <div class="schedule-col">Data Preparation</div>
-                        <div class="schedule-col"></div>
-                    </div>
-
-                    <div class="schedule-section">
-                        <div class="schedule-section-title">Descriptive & Diagnostic Analytics</div>
-                    </div>
-
-                    <div class="schedule-row">
-                        <div class="schedule-col">4</div>
-                        <div class="schedule-col">Sep 18</div>
-                        <div class="schedule-col">Thu</div>
-                        <div class="schedule-col">Descriptive Analytics & Exploratory Data Analysis (EDA)</div>
-                        <div class="schedule-col">Lesson Exercises 03</div>
-                    </div>
-                    <div class="schedule-row">
-                        <div class="schedule-col">5</div>
-                        <div class="schedule-col">Sep 23</div>
-                        <div class="schedule-col">Tue</div>
-                        <div class="schedule-col">Diagnostic Analytics</div>
-                        <div class="schedule-col"></div>
-                    </div>
-                    <div class="schedule-row">
-                        <div class="schedule-col">5</div>
-                        <div class="schedule-col">Sep 25</div>
-                        <div class="schedule-col">Thu</div>
-                        <div class="schedule-col">Dashboards</div>
-                        <div class="schedule-col">Lesson Exercises 04</div>
-                    </div>
-                    
-                    <div class="schedule-row">
-                        <div class="schedule-col">6</div>
-                        <div class="schedule-col">Sep 30</div>
-                        <div class="schedule-col">Tue</div>
-                        <div class="schedule-col">Visualizations with Looker Studio</div>
-                        <div class="schedule-col"></div>
-                    </div>
-
-                    <div class="schedule-section">
-                        <div class="schedule-section-title">Predictive Analytics</div>
-                    </div>
-
-                    <div class="schedule-row">
-                        <div class="schedule-col">6</div>
-                        <div class="schedule-col">Oct 02</div>
-                        <div class="schedule-col">Thu</div>
-                        <div class="schedule-col">Predictive Analytics & Time Series Forecasting 01</div>
-                        <div class="schedule-col">Lesson Exercises 05</div>
-                    </div>
-                    <div class="schedule-row">
-                        <div class="schedule-col">7</div>
-                        <div class="schedule-col">Oct 07</div>
-                        <div class="schedule-col">Tue</div>
-                        <div class="schedule-col">Time Series Forecasting 02</div>
-                    </div>
-                    <div class="schedule-row">
-                        <div class="schedule-col">7</div>
-                        <div class="schedule-col">Oct 09</div>
-                        <div class="schedule-col">Thu</div>
-                        <div class="schedule-col">Regression 01</div>
-                    </div>
-                    <div class="schedule-row">
-                        <div class="schedule-col">8</div>
-                        <div class="schedule-col">Oct 14</div>
-                        <div class="schedule-col">Tue</div>
-                        <div class="schedule-col">Regression 02</div>
-                        <div class="schedule-col">Lesson Exercises 06</div>
-                    </div>
-                    <div class="schedule-row midterm">
-                        <div class="schedule-col">8</div>
-                        <div class="schedule-col">Oct 16</div>
-                        <div class="schedule-col">Thu</div>
-                        <div class="schedule-col">Midterm Interview Review</div>
-                        <div class="schedule-col"></div>
-                    </div>
-                    <div class="schedule-row midterm">
-                        <div class="schedule-col">9</div>
-                        <div class="schedule-col">Oct 20</div>
-                        <div class="schedule-col">Mon</div>
-                        <div class="schedule-col">Midterm Interview</div>
-                        <div class="schedule-col"><strong>Project Milestone 01</strong></div>
-                    </div>
-                    <div class="schedule-row midterm">
-                        <div class="schedule-col">9</div>
-                        <div class="schedule-col">Oct 21</div>
-                        <div class="schedule-col">Tue</div>
-                        <div class="schedule-col">Midterm Interview</div>
-                        <div class="schedule-col"></div>
-                    </div>
-                    <div class="schedule-row midterm">
-                        <div class="schedule-col">9</div>
-                        <div class="schedule-col">Oct 22</div>
-                        <div class="schedule-col">Wed</div>
-                        <div class="schedule-col">Midterm Interview</div>
-                        <div class="schedule-col"></div>
-                    </div>
-
-                    <div class="schedule-section">
-                        <div class="schedule-section-title">Prescriptive Analytics</div>
-                    </div>
-
-                    <div class="schedule-row">
-                        <div class="schedule-col">9</div>
-                        <div class="schedule-col">Oct 23</div>
-                        <div class="schedule-col">Thu</div>
-                        <div class="schedule-col">Multiple Linear Regression</div>
-                        <div class="schedule-col"><strong></strong></div>
-                    </div>
-                    <div class="schedule-row">
-                        <div class="schedule-col">10</div>
-                        <div class="schedule-col">Oct 28</div>
-                        <div class="schedule-col">Tue</div>
-                        <div class="schedule-col">Prescriptive Analytics, Aggregate Planning</div>
-                        <div class="schedule-col"></div>
-                    </div>
-                    <div class="schedule-row">
-                        <div class="schedule-col">10</div>
-                        <div class="schedule-col">Oct 30</div>
-                        <div class="schedule-col">Thu</div>
-                        <div class="schedule-col">Inventory Management 01</div>
-                        <div class="schedule-col">Lesson Exercises 07</div>
-                    </div>
-                    <div class="schedule-row">
-                        <div class="schedule-col">11</div>
-                        <div class="schedule-col">Nov 04</div>
-                        <div class="schedule-col">Tue</div>
-                        <div class="schedule-col">Inventory Management 02</div>
-                        <div class="schedule-col"></div>
-                    </div>
-                    <div class="schedule-row">
-                        <div class="schedule-col">11</div>
-                        <div class="schedule-col">Nov 06</div>
-                        <div class="schedule-col">Thu</div>
-                        <div class="schedule-col">Location Strategy</div>
-                        <div class="schedule-col">Lesson Exercises 08</div>
-                    </div>
-                    <div class="schedule-row">
-                        <div class="schedule-col">12</div>
-                        <div class="schedule-col">Nov 11</div>
-                        <div class="schedule-col">Tue</div>
-                        <div class="schedule-col">Capacity & Constraint Management</div>
-                        <div class="schedule-col"><strong>Project Milestone 02</strong></div>
-                    </div>
-                    <div class="schedule-row">
-                        <div class="schedule-col">12</div>
-                        <div class="schedule-col">Nov 13</div>
-                        <div class="schedule-col">Thu</div>
-                        <div class="schedule-col">Optimization (Linear Programming) 01</div>
-                        <div class="schedule-col"></div>
-                    </div>
-                    <div class="schedule-row">
-                        <div class="schedule-col">13</div>
-                        <div class="schedule-col">Nov 18</div>
-                        <div class="schedule-col">Tue</div>
-                        <div class="schedule-col">Optimization (Linear Programming) 02</div>
-                        <div class="schedule-col">Lesson Exercises 09</div>
-                    </div>
-                    
-                    <div class="schedule-row">
-                        <div class="schedule-col">13</div>
-                        <div class="schedule-col">Nov 20</div>
-                        <div class="schedule-col">Thu</div>
-                        <div class="schedule-col">Transportation Modeling - Linear Programming</div>
-                        <div class="schedule-col"></div>
-                    </div>
-                    
-                    <div class="schedule-row zoom">
-                        <div class="schedule-col">14</div>
-                        <div class="schedule-col">Nov 25</div>
-                        <div class="schedule-col">Tue</div>
-                        <div class="schedule-col">Guest Speaker - Zoom Class</div>
-                        <div class="schedule-col"></div>
-                    </div>
-                    <div class="schedule-row no-class">
-                        <div class="schedule-col">15</div>
-                        <div class="schedule-col">Nov 27</div>
-                        <div class="schedule-col">Thu</div>
-                        <div class="schedule-col">Thanksgiving Holiday - No Class</div>
-                        <div class="schedule-col"></div>
-                    </div>
-                    <div class="schedule-row">
-                        <div class="schedule-col">14</div>
-                        <div class="schedule-col">Dec 02</div>
-                        <div class="schedule-col">Tue</div>
-                        <div class="schedule-col">Supply Chain Management Strategy</div>
-                        <div class="schedule-col">Lesson Exercises 10</div>
-                    </div>
-                    <div class="schedule-row final">
-                        <div class="schedule-col">15</div>
-                        <div class="schedule-col">Dec 04</div>
-                        <div class="schedule-col">Thu</div>
-                        <div class="schedule-col">Final Interview Review</div>
-                        <div class="schedule-col"></div>
-                    </div>
-                    <div class="schedule-row final">
-                        <div class="schedule-col"></div>
-                        <div class="schedule-col">Dec 07</div>
-                        <div class="schedule-col">Sun</div>
-                        <div class="schedule-col"></div>
-                        <div class="schedule-col"><strong>Project Milestone 03</strong></div>
-                    </div>
-                    <div class="schedule-row final">
-                        <div class="schedule-col">16</div>
-                        <div class="schedule-col">Dec 08</div>
-                        <div class="schedule-col">Mon</div>
-                        <div class="schedule-col">Final Interview 01</div>
-                        <div class="schedule-col"></div>
-                    </div>
-                    <div class="schedule-row final">
-                        <div class="schedule-col">16</div>
-                        <div class="schedule-col">Dec 09</div>
-                        <div class="schedule-col">Tue</div>
-                        <div class="schedule-col">Final Interview 02</div>
-                        <div class="schedule-col"></div>
-                    </div>
-                    <div class="schedule-row final">
-                        <div class="schedule-col">16</div>
-                        <div class="schedule-col">Dec 10</div>
-                        <div class="schedule-col">Wed</div>
-                        <div class="schedule-col">Final Interview 03</div>
-                        <div class="schedule-col"></div>
-                    </div>
-                </div>
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>Week</th>
+                            <th>Topic</th>
+                            <th>Readings</th>
+                            <th>Assignments</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- TEMPLATE: Add your weekly schedule -->
+                        <tr>
+                            <td>1</td>
+                            <td>{{WEEK_1_TOPIC}}</td>
+                            <td>{{WEEK_1_READINGS}}</td>
+                            <td>{{WEEK_1_ASSIGNMENTS}}</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>{{WEEK_2_TOPIC}}</td>
+                            <td>{{WEEK_2_READINGS}}</td>
+                            <td>{{WEEK_2_ASSIGNMENTS}}</td>
+                        </tr>
+                        <!-- Add more weeks as needed -->
+                    </tbody>
+                </table>
             </section>
 
+            <!-- GRADING -->
             <section id="grading" class="section">
-                <h2 class="section-title">Grading Scheme</h2>
-                <div class="grade-grid">
-                    <div class="grade-item">
-                        <div class="grade-percentage">45%</div>
-                        <div>Project Milestones</div>
+                <h2 class="section-title">Grading</h2>
+                <div class="card">
+                    <h3 class="card-title">Grade Breakdown</h3>
+                    <!-- TEMPLATE: Update with your grading weights -->
+                    <div class="grading-item">
+                        <span>Participation</span>
+                        <span>{{PARTICIPATION_WEIGHT}}%</span>
                     </div>
-                    <div class="grade-item">
-                        <div class="grade-percentage">40%</div>
-                        <div>Interviews</div>
+                    <div class="grading-item">
+                        <span>Assignments</span>
+                        <span>{{ASSIGNMENTS_WEIGHT}}%</span>
                     </div>
-                    <div class="grade-item">
-                        <div class="grade-percentage">15%</div>
-                        <div>Lesson Exercises</div>
+                    <div class="grading-item">
+                        <span>Midterm Exam/Project</span>
+                        <span>{{MIDTERM_WEIGHT}}%</span>
                     </div>
-                </div>
-                
-                <div class="card" style="margin-top: 2rem;">
-                    <h3>Detailed Point Breakdown</h3>
-                    <div class="points-table">
-                        <div class="points-header">
-                            <div class="points-col">Item</div>
-                            <div class="points-col">Quantity</div>
-                            <div class="points-col">Points Per Item</div>
-                            <div class="points-col">Total Points</div>
-                        </div>
-                        <div class="points-row">
-                            <div class="points-col">Lesson Exercises</div>
-                            <div class="points-col">10</div>
-                            <div class="points-col">1.5</div>
-                            <div class="points-col">15</div>
-                        </div>
-                        <div class="points-row">
-                            <div class="points-col">Midterm Interview</div>
-                            <div class="points-col">1</div>
-                            <div class="points-col">15</div>
-                            <div class="points-col">15</div>
-                        </div>
-                        <div class="points-row">
-                            <div class="points-col">Final Interview</div>
-                            <div class="points-col">1</div>
-                            <div class="points-col">25</div>
-                            <div class="points-col">25</div>
-                        </div>
-                        <div class="points-row">
-                            <div class="points-col">Project Milestone 01</div>
-                            <div class="points-col">1</div>
-                            <div class="points-col">15</div>
-                            <div class="points-col">15</div>
-                        </div>
-                        <div class="points-row">
-                            <div class="points-col">Project Milestone 02</div>
-                            <div class="points-col">1</div>
-                            <div class="points-col">15</div>
-                            <div class="points-col">15</div>
-                        </div>
-                        <div class="points-row">
-                            <div class="points-col">Project Milestone 03</div>
-                            <div class="points-col">1</div>
-                            <div class="points-col">15</div>
-                            <div class="points-col">15</div>
-                        </div>
-                        <div class="points-total">
-                            <div class="points-col"></div>
-                            <div class="points-col"><strong>16</strong></div>
-                            <div class="points-col"></div>
-                            <div class="points-col"><strong>100</strong></div>
-                        </div>
+                    <div class="grading-item">
+                        <span>Final Exam/Project</span>
+                        <span>{{FINAL_WEIGHT}}%</span>
+                    </div>
+                    <div class="grading-item">
+                        <span>Total</span>
+                        <span>100%</span>
                     </div>
                 </div>
-                
-                <div class="card" style="margin-top: 1rem;">
-                    <h3>Grading Scale</h3>
-                    <div class="grade-scale-grid">
-                        <div class="grade-scale-item grade-a">
-                            <div class="grade-letter">A</div>
-                            <div class="grade-range">93-100%</div>
-                        </div>
-                        <div class="grade-scale-item grade-a-minus">
-                            <div class="grade-letter">A-</div>
-                            <div class="grade-range">90-92%</div>
-                        </div>
-                        <div class="grade-scale-item grade-b-plus">
-                            <div class="grade-letter">B+</div>
-                            <div class="grade-range">87-89%</div>
-                        </div>
-                        <div class="grade-scale-item grade-b">
-                            <div class="grade-letter">B</div>
-                            <div class="grade-range">83-86%</div>
-                        </div>
-                        <div class="grade-scale-item grade-b-minus">
-                            <div class="grade-letter">B-</div>
-                            <div class="grade-range">80-82%</div>
-                        </div>
-                        <div class="grade-scale-item grade-c-plus">
-                            <div class="grade-letter">C+</div>
-                            <div class="grade-range">77-79%</div>
-                        </div>
-                        <div class="grade-scale-item grade-c">
-                            <div class="grade-letter">C</div>
-                            <div class="grade-range">73-76%</div>
-                        </div>
-                        <div class="grade-scale-item grade-c-minus">
-                            <div class="grade-letter">C-</div>
-                            <div class="grade-range">70-72%</div>
-                        </div>
-                        <div class="grade-scale-item grade-d">
-                            <div class="grade-letter">D</div>
-                            <div class="grade-range">60-69%</div>
-                        </div>
-                        <div class="grade-scale-item grade-f">
-                            <div class="grade-letter">F</div>
-                            <div class="grade-range">Below 60%</div>
-                        </div>
-                    </div>
+
+                <div class="card">
+                    <h3 class="card-title">Grading Scale</h3>
+                    <p>A: 93-100 | A-: 90-92 | B+: 87-89 | B: 83-86 | B-: 80-82</p>
+                    <p>C+: 77-79 | C: 73-76 | C-: 70-72 | D: 60-69 | F: Below 60</p>
                 </div>
             </section>
 
-            <section id="toolkit" class="section">
-                <h2 class="section-title">Tips for Succeeding in Class</h2>
-                
-                <div class="success-toolkit">
-                    <h3 style="text-align: center; margin-bottom: 2rem; font-size: 1.5rem;">5 Keys to Success in This Course</h3>
-                    
-                    <div class="card">
-                        <h3>Stay Present & Engaged</h3>
-                        <p>Show up — in person, on Teams, and in conversations. The more visible you are, the more I can coach you toward success. Disappearing is the fastest way to fall behind.</p>
-                    </div>
-                    
-                    <div class="card">
-                        <h3>Bring Solutions, Not Just Problems</h3>
-                        <p>Challenges will come up: a tricky assignment, a group conflict, a late submission. When you reach out, also suggest a possible solution. This shows initiative and makes it easier for us to problem-solve together.</p>
-                    </div>
-                    
-                    <div class="card">
-                        <h3>Build a Professional Relationship</h3>
-                        <p>Treat this class like a career opportunity. Ask questions, <a href="https://www.linkedin.com/in/lontok" target="_blank" rel="noopener noreferrer">connect with me on LinkedIn</a>, and seek feedback. Faculty often recommend students for jobs, but only if they know and trust you.</p>
-                    </div>
-                    
-                    <div class="card">
-                        <h3>Practice Professionalism Daily</h3>
-                        <p>How you write emails and Teams messages, present your work, and collaborate with peers reflects directly on your future career. Use this class as a low-risk environment to practice the habits employers value.</p>
-                    </div>
-                    
-                    <div class="card">
-                        <h3>Find Your Voice</h3>
-                        <p>Speaking up in class isn't the only way to contribute. Use Teams chat, post questions, or share resources. What matters is showing that you are actively learning and thinking — not staying silent.</p>
-                    </div>
-                </div>
-            </section>
-
+            <!-- POLICIES -->
             <section id="policies" class="section">
-                <h2 class="section-title">Policies</h2>
-                
-                <div class="success-toolkit" style="margin-bottom: 2rem;">
-                    <h2 style="text-align: center; margin-bottom: 1rem; color: #2c3e50;">Artificial Intelligence (AI) Policy</h2>
-                    <p style="text-align: center; margin-bottom: 2rem; font-size: 1.1rem;">AI is a core part of this course and your future career</p>
-                    
-                    <div class="card">
-                        <p>I describe myself as an <strong>AI optimist</strong>: I believe these tools will shape the future of work and create new opportunities, but I also know they can be misused if relied on without thought. In this class, AI is treated the same way employers are starting to treat it, as a tool, not a substitute for your judgment.</p>
-                        <br>
-                        <p>We will be using AI throughout the course. My goal is to help you learn how to use it effectively and responsibly, and to make your ability to use AI a skill differentiator that sets you apart in internships and job interviews.</p>
-                    </div>
+                <h2 class="section-title">Course Policies</h2>
 
-                    <div class="card">
-                        <h3>✅ You may use AI to:</h3>
-                        <ul>
-                            <li>Brainstorm ideas or outlines for assignments</li>
-                            <li>Reformat, polish, or reword text you've already written</li>
-                            <li>Automate routine tasks (for example, cleaning or formatting data in Excel)</li>
-                            <li>Explore alternative approaches to a problem (but not copy-paste answers)</li>
-                        </ul>
-                    </div>
+                <div class="card">
+                    <h3 class="card-title">Attendance</h3>
+                    <p>{{ATTENDANCE_POLICY}}</p>
+                </div>
 
-                    <div class="card">
-                        <h3>❌ You may not use AI to:</h3>
-                        <ul>
-                            <li>Generate complete assignments, projects, or exam answers and submit them as your own</li>
-                            <li>Avoid learning the underlying skills we're practicing (for example, running a regression, building a forecast, designing a visualization)</li>
-                            <li>Hide your use of AI. Transparency matters</li>
-                        </ul>
-                    </div>
+                <div class="card">
+                    <h3 class="card-title">Late Work</h3>
+                    <p>{{LATE_WORK_POLICY}}</p>
+                </div>
 
-                    <div class="card">
-                        <h3>Expectations:</h3>
-                        <ul>
-                            <li>If you use AI in your work, disclose it (for example, "I used ChatGPT to help me brainstorm project ideas")</li>
-                            <li>I grade your understanding and ability to explain your process, not just the final answer. If you can't explain your solution without the tool, you haven't met the learning goal</li>
-                            <li>Think of AI as a junior analyst — useful, but still needs your oversight</li>
-                        </ul>
-                    </div>
+                <div class="card">
+                    <h3 class="card-title">Academic Integrity</h3>
+                    <p>{{ACADEMIC_INTEGRITY_POLICY}}</p>
+                </div>
 
-                    <div class="card">
-                        <h3>Bottom Line</h3>
-                        <p>AI can give you leverage, but your critical thinking, decision-making, and ability to explain your work are what will make you stand out. Use this course to practice turning AI from a shortcut into a competitive advantage.</p>
-                        
-                    </div>
-                </div>
-                
                 <div class="card">
-                    <h3>Attendance & Participation</h3>
-                    <div>
-                        <p>If you feel ill, please stay home to keep others safe and recover. If an unexpected obligation arises that prevents you from attending class, please let me know before class or within 12 hours after the class start time.</p>
-                        <br>
-                        <p>I get there are emergencies or things that come up. Do your best to tell me in advance (at least a day before, if possible). I'm most concerned about you communicating and keeping me in the loop.</p>
-                        <br>
-                        <p><strong>Each undocumented absence is -2% of your total class grade.</strong></p>
-                        
-                    </div>
+                    <h3 class="card-title">AI Usage Policy</h3>
+                    <p>{{AI_USAGE_POLICY}}</p>
                 </div>
-                
-                <div class="card">
-                    <h3>Assignment Submission</h3>
-                    <div>
-                        <p>All assignments must be submitted via Brightspace by the due date. Late submissions will result in a <strong>10% reduction per day</strong> unless prior arrangements are made.</p>
-                    </div>
+            </section>
+
+            <!-- RESOURCES -->
+            <section id="resources" class="section">
+                <h2 class="section-title">Resources</h2>
+
+                <div class="highlight-box">
+                    <h3>Student Success Resources</h3>
+                    <p>{{SUCCESS_RESOURCES_DESCRIPTION}}</p>
                 </div>
-                
+
                 <div class="card">
-                    <h3>Academic Honesty</h3>
-                    <div>
-                        <p>All work must be original and properly cited. Collaboration is encouraged for group projects but individual assignments must represent your own work. See <a href="https://academics.lmu.edu/honesty/" target="_blank" rel="noopener noreferrer">LMU Academic Honesty Policy</a> for complete details.</p>
-                    </div>
+                    <h3 class="card-title">Campus Resources</h3>
+                    <ul>
+                        <li><strong>Writing Center:</strong> {{WRITING_CENTER_INFO}}</li>
+                        <li><strong>Tutoring Services:</strong> {{TUTORING_INFO}}</li>
+                        <li><strong>Accessibility Services:</strong> {{ACCESSIBILITY_INFO}}</li>
+                        <li><strong>Counseling Services:</strong> {{COUNSELING_INFO}}</li>
+                    </ul>
                 </div>
-                
-                <div class="card">
-                    <h3>Accommodations</h3>
-                    <div>
-                        <p>Students with documented disabilities who may need special accommodations should discuss these needs with me early in the semester. Please contact <a href="https://academics.lmu.edu/dss/" target="_blank" rel="noopener noreferrer">Disability Support Services</a> for assistance.</p>
+            </section>
+
+            <!-- CONTACT -->
+            <section id="contact" class="section">
+                <h2 class="section-title">Contact Information</h2>
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <h4>Instructor</h4>
+                        <p><strong>{{INSTRUCTOR_NAME}}</strong></p>
+                        <p>{{INSTRUCTOR_EMAIL}}</p>
+                        <p>Office: {{OFFICE_LOCATION}}</p>
                     </div>
-                </div>
-                
-                <div class="card">
-                    <h3>Syllabus Changes</h3>
-                    <p>This syllabus may be revised during the semester. Changes will be announced in class and via email, and students are responsible for staying informed of modifications.</p>
+                    <div class="contact-card">
+                        <h4>Office Hours</h4>
+                        <p>{{OFFICE_HOURS}}</p>
+                        <p>{{OFFICE_HOURS_NOTES}}</p>
+                    </div>
+                    <div class="contact-card">
+                        <h4>Teaching Assistant</h4>
+                        <p><strong>{{TA_NAME}}</strong></p>
+                        <p>{{TA_EMAIL}}</p>
+                    </div>
                 </div>
             </section>
         </main>
 
-
-        <footer class="footer">
-            <p>&copy; 2025 Loyola Marymount University | College of Business Administration</p>
-            <p>BCOR 3750 - Analytics in Operations and Supply Chain Management | Prof. Greg Lontok</p>
-            <div class="print-only" style="margin-top: 1rem; font-size: 0.9em;">
-                <p>📱 Interactive version available at: [GitHub Pages URL will be updated after deployment]</p>
-            </div>
+        <footer>
+            <p>{{INSTITUTION_NAME}} | {{SEMESTER}}</p>
+            <p>&copy; {{YEAR}} {{INSTRUCTOR_NAME}}</p>
         </footer>
     </div>
 
     <script>
-        // Smooth scrolling navigation
+        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1513,30 +439,6 @@
                     });
                 }
             });
-        });
-
-
-        // Add some interactive animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all cards for animation
-        document.querySelectorAll('.card').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(card);
         });
     </script>
 </body>

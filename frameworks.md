@@ -1,138 +1,77 @@
-# **BCOR 3750 - Analytics in Operations & Supply Chain Management Frameworks – Fall 2025**
+# {{COURSE_CODE}} - Course Frameworks Reference
 
-## **3 Major Functions of an Organization**
+## Overview
 
-• Marketing → Generates demand
+This document provides a quick reference for the key frameworks and models used in {{COURSE_NAME}}.
 
-• Operations → Creates the product
+---
 
-• Finance → Tracks financial performance
+## Framework 1: {{FRAMEWORK_1_NAME}}
 
+**Purpose**: {{FRAMEWORK_1_PURPOSE}}
 
-## **10 Operations Management Decision Areas**
+**Components**:
+- {{F1_COMPONENT_1}}
+- {{F1_COMPONENT_2}}
+- {{F1_COMPONENT_3}}
 
-• Design of Goods & Services – What product or service are we creating, and who is it for?
+**When to Use**: {{F1_USE_CASE}}
 
-• Quality Management – How do we meet expectations every time?
+**Example**:
+{{F1_EXAMPLE}}
 
-• Process & Capacity Design – How will the work get done, and how much can we produce?
+---
 
-• Location Strategy – Where should we set up to serve customers best?
+## Framework 2: {{FRAMEWORK_2_NAME}}
 
-• Layout Strategy – How do we arrange people, machines, or space for smooth flow?
+**Purpose**: {{FRAMEWORK_2_PURPOSE}}
 
-• Human Resources & Job Design – Who does the work, and how do we design jobs people want to do?
+**Components**:
+- {{F2_COMPONENT_1}}
+- {{F2_COMPONENT_2}}
+- {{F2_COMPONENT_3}}
 
-• Supply Chain Management – Where do our materials come from, and how do products reach customers?
+**When to Use**: {{F2_USE_CASE}}
 
-• Inventory Management – How much should we keep in stock, and when should we restock?
+**Example**:
+{{F2_EXAMPLE}}
 
-• Scheduling – When should people, machines, and tasks be assigned?
+---
 
-• Maintenance – How do we keep everything running reliably over time?
+## Framework 3: {{FRAMEWORK_3_NAME}}
 
-## **5-Step Analytics Framework (DC ACT)**
+**Purpose**: {{FRAMEWORK_3_PURPOSE}}
 
-• Define the business problem
+**Components**:
+- {{F3_COMPONENT_1}}
+- {{F3_COMPONENT_2}}
+- {{F3_COMPONENT_3}}
 
-• Collect and prepare the data
+**When to Use**: {{F3_USE_CASE}}
 
-• Analyze the data and generate insights
+**Example**:
+{{F3_EXAMPLE}}
 
-• Communicate the insights, recommendations, and predictions
+---
 
-• Act and track the change
+## Key Terminology
 
-## **RCTO AI Prompting Framework**
+| Term | Definition |
+|------|------------|
+| {{TERM_1}} | {{DEF_1}} |
+| {{TERM_2}} | {{DEF_2}} |
+| {{TERM_3}} | {{DEF_3}} |
+| {{TERM_4}} | {{DEF_4}} |
+| {{TERM_5}} | {{DEF_5}} |
 
-• ROLE – Define who the AI should be.
+---
 
-• CONTEXT – Provide the relevant background information.
+## Framework Integration
 
-• TASK – State what you want the AI to do.
+How these frameworks work together:
 
-• OUTPUT FORMAT – Specify how you want the response presented.
+{{INTEGRATION_DESCRIPTION}}
 
-## **Balanced Scorecard (Performance Perspectives)**
+---
 
-• Financial
-
-• Customer
-
-• Internal
-
-• Learning & Growth
-
-## **SMART Goals Framework**
-
-• Specific
-
-• Measurable
-
-• Achievable
-
-• Relevant
-
-• Time-bound
-
-## **4 Types of Analytics**
-
-• Descriptive – What happened
-
-• Diagnostic – Why it happened
-
-• Predictive – What will happen
-
-• Prescriptive – What should we do about it
-
-## **Operations Metrics Categories**
-
-• Cost
-
-• Quality
-
-• Service
-
-## **1–10–100 Rule of Data Quality**
-
-• $1 → Prevention cost
-
-• $10 → Correction cost
-
-• $100 → Failure cost
-
-• Emphasis: prevention is always cheaper than fixing or failing.
-
-## **7 Data Quality Dimensions**
-
-• Availability – Can I get it when I need it?
-
-• Accuracy – Does it reflect reality?
-
-• Completeness – Is anything missing?
-
-• Consistency – Is it the same everywhere it appears?
-
-• Validity – Does it follow rules or formats?
-
-• Uniqueness – Are there duplicates?
-
-• Timeliness – Is it recent enough?
-
-## **2 Evaluation Methods for Data Quality**
-
-• Visual / Point-and-click methods
-
-• Formula-based checks
-
-## **Data Quality Framework**
-
-1. Identify the data quality issue
-
-2. Assess the business ramification
-
-3. Analyze the root cause
-
-4. Decide on the best option (Remove / Update / Do Nothing)
-
-5. Fix the issue, if applicable
+*Last updated: {{UPDATE_DATE}}*

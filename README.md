@@ -1,51 +1,150 @@
-# BCOR 3750 - Strategic Management
+# Course Syllabus Template
 
-## 🎓 Course Syllabus Website
+A comprehensive template for creating course syllabi with integrated study guides, project documentation, and custom GPT configurations.
 
-This repository hosts an interactive, modern syllabus for BCOR 3750 Strategic Management at Loyola Marymount University.
+## Features
 
-### 🌐 Live Website
-- **Interactive Syllabus:** [GitHub Pages URL - will be available after deployment]
-- **PDF Export:** Use your browser's print function (Ctrl/Cmd + P) on the website
+- **Interactive Syllabus Website** - Modern, responsive HTML syllabus with print optimization
+- **Study Guide Templates** - Structured guides for midterm and final interviews
+- **Project Documentation** - Requirements and milestone templates
+- **Custom GPT Configurations** - Ready-to-use templates for:
+  - Dataset Generator GPT (for student project data)
+  - Interview Coach GPT (for interview practice)
 
-### ✨ Features
+## Quick Start
 
-- **Interactive Design:** Modern, responsive website with smooth navigation
-- **Student Success Toolkit:** Practical resources and templates for strategic analysis
-- **Visual Timeline:** Clear course progression with key deliverables
-- **Print-Optimized:** Professional PDF export with preserved styling
-- **Mobile-Friendly:** Fully responsive for all devices
-- **Resource Hub:** Direct links to research tools and support services
-
-### 🚀 Quick Start
-
-1. **View Online:** Visit the GitHub Pages URL above
-2. **Save as PDF:** Open the website and use your browser's print function
-3. **Bookmark:** Save the link for quick access throughout the semester
-
-### 📁 Repository Structure
-
-```
-├── index.html          # Main syllabus website
-├── planning/          # Course planning documents
-├── .github/workflows/ # GitHub Pages deployment
-└── README.md         # This file
+### 1. Fork/Clone This Repository
+```bash
+git clone https://github.com/YOUR_USERNAME/syllabus.git
+cd syllabus
 ```
 
-### 🔧 Technical Details
+### 2. Customize for Your Course
+Replace `{{PLACEHOLDER}}` values throughout all files with your course-specific information.
 
-- Built with modern HTML5, CSS3, and vanilla JavaScript
-- Responsive design using CSS Grid and Flexbox
-- Print-optimized CSS with professional typography
-- Automated deployment via GitHub Actions
+### 3. Deploy
+Enable GitHub Pages in repository settings to publish your syllabus website.
 
-### 📝 Course Information
+## Repository Structure
 
-- **Course:** BCOR 3750 - Strategic Management
-- **Instructor:** Greg Lontok
-- **Semester:** Fall 2025
-- **Institution:** Loyola Marymount University
+```
+syllabus/
+├── README.md                    # This file
+├── index.html                   # Syllabus website template
+├── LICENSE                      # MIT License
+├── .gitignore
+│
+├── images/                      # Course images
+│   └── .gitkeep                # Add header.jpg for syllabus
+│
+├── interviews/                  # Study guides
+│   ├── README.md               # Guide for creating study guides
+│   ├── midterm-study-guide.md  # Midterm interview template
+│   └── final-study-guide.md    # Final interview template
+│
+├── project/                     # Project documentation
+│   ├── README.md               # Guide for project design
+│   ├── requirements.md         # Project requirements template
+│   └── milestones.md           # Milestone breakdown template
+│
+├── gpts/                        # Custom GPT configurations
+│   ├── README.md               # GPT setup guide
+│   ├── dataset-generator/      # Dataset generation GPT
+│   │   ├── instructions.md     # GPT system instructions
+│   │   ├── ui-config.md       # OpenAI UI settings
+│   │   └── knowledge/         # Upload course files here
+│   └── interview-coach/        # Interview practice GPT
+│       ├── instructions.md     # GPT system instructions
+│       ├── ui-config.md       # OpenAI UI settings
+│       └── knowledge/         # Upload study guides here
+│
+└── .github/workflows/
+    └── pages.yml               # GitHub Pages deployment
+```
+
+## Customization Guide
+
+### Syllabus Website (`index.html`)
+
+1. Update the `<title>` tag with your course code and name
+2. Modify CSS variables in `:root` for your institution's colors
+3. Replace all `{{PLACEHOLDER}}` values:
+   - `{{COURSE_CODE}}` - e.g., "BCOR 3750"
+   - `{{COURSE_NAME}}` - e.g., "Strategic Management"
+   - `{{SEMESTER}}` - e.g., "Fall 2025"
+   - Course details, schedule, grading, policies
+
+4. Add a header image to `images/header.jpg`
+
+### Study Guides (`interviews/`)
+
+1. Copy the appropriate template
+2. Replace placeholders with your course content
+3. Add your specific topics, concepts, and frameworks
+4. Update sample questions to match your interview style
+
+### Project Documentation (`project/`)
+
+1. Define your project requirements in `requirements.md`
+2. Break down milestones in `milestones.md`
+3. Customize rubrics and evaluation criteria
+4. Add any templates students will need
+
+### Custom GPTs (`gpts/`)
+
+1. Edit `instructions.md` with your course specifics
+2. Review `ui-config.md` for recommended settings
+3. Add course files to `knowledge/` directories
+4. Create GPTs at https://chat.openai.com/gpts/editor
+5. Test thoroughly before sharing with students
+
+## Deployment
+
+### GitHub Pages
+
+1. Go to repository Settings → Pages
+2. Set Source to "GitHub Actions"
+3. The `pages.yml` workflow will deploy automatically
+4. Access at `https://YOUR_USERNAME.github.io/syllabus/`
+
+### Custom Domain (Optional)
+
+1. Add a `CNAME` file with your domain
+2. Configure DNS with your provider
+3. Enable HTTPS in GitHub Pages settings
+
+## Best Practices
+
+### For Syllabi
+- Keep content current and accurate
+- Use clear, student-friendly language
+- Include all required institutional policies
+- Test print functionality before semester starts
+
+### For Study Guides
+- Update after each major topic is covered
+- Include both recall and application questions
+- Provide clear evaluation criteria
+- Align with actual interview format
+
+### For GPTs
+- Test with various student scenarios
+- Update when course content changes
+- Monitor for appropriate responses
+- Gather student feedback for improvement
+
+## Contributing
+
+If you improve this template, consider sharing your enhancements:
+
+1. Fork the repository
+2. Make your changes
+3. Submit a pull request
+
+## License
+
+MIT License - See [LICENSE](LICENSE) for details.
 
 ---
 
-*This syllabus demonstrates the innovative, resource-focused approach students will experience in Strategic Management.*
+*Template created for educational use. Customize freely for your courses.*
