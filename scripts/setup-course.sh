@@ -93,6 +93,44 @@ replace_placeholder "OFFICE_HOURS" "$OFFICE_HOURS"
 
 echo ""
 echo "================================================"
+echo "  Enabling GitHub Pages..."
+echo "================================================"
+echo ""
+
+# Get repo info from git remote
+REPO_URL=$(git remote get-url origin 2>/dev/null || echo "")
+if [[ "$REPO_URL" =~ github\.com[:/]([^/]+)/([^/.]+) ]]; then
+    REPO_OWNER="${BASH_REMATCH[1]}"
+    REPO_NAME="${BASH_REMATCH[2]}"
+
+    # Check if gh CLI is available
+    if command -v gh &> /dev/null; then
+        # Enable GitHub Pages with Actions workflow
+        if gh api "repos/$REPO_OWNER/$REPO_NAME/pages" -X POST -f build_type=workflow 2>/dev/null; then
+            echo "  ✓ GitHub Pages enabled"
+            echo "  ✓ Website will be at: https://${REPO_OWNER,,}.github.io/$REPO_NAME/"
+        else
+            # Pages might already be enabled
+            PAGES_URL=$(gh api "repos/$REPO_OWNER/$REPO_NAME/pages" --jq '.html_url' 2>/dev/null || echo "")
+            if [ -n "$PAGES_URL" ]; then
+                echo "  ✓ GitHub Pages already enabled"
+                echo "  ✓ Website: $PAGES_URL"
+            else
+                echo "  ⚠ Could not enable GitHub Pages automatically"
+                echo "    Enable manually: Settings → Pages → Source: GitHub Actions"
+            fi
+        fi
+    else
+        echo "  ⚠ GitHub CLI (gh) not found"
+        echo "    Enable Pages manually: Settings → Pages → Source: GitHub Actions"
+    fi
+else
+    echo "  ⚠ Could not detect GitHub repository"
+    echo "    Enable Pages manually after pushing to GitHub"
+fi
+
+echo ""
+echo "================================================"
 echo "  Phase 1 Complete!"
 echo "================================================"
 echo ""
