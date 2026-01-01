@@ -59,6 +59,8 @@ The script will prompt for course-specific information:
 
 Press Enter to accept defaults or type a new value.
 
+The script also automatically enables GitHub Pages for your repository.
+
 ### Step 4: Complete Manual Edits (Phase 2)
 
 The setup script handles core identifiers. You'll still need to customize:
