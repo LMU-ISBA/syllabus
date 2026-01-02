@@ -168,6 +168,37 @@
             font-weight: bold;
         }
 
+        /* Colorful Grading Scale */
+        .grade-scale-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .grade-box {
+            padding: 0.75rem;
+            text-align: center;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        .grade-box .grade-letter {
+            font-size: 1.2rem;
+            display: block;
+        }
+
+        .grade-box .grade-range {
+            font-size: 0.85rem;
+            font-weight: normal;
+        }
+
+        .grade-a { background: #c8e6c9; color: #2e7d32; }
+        .grade-b { background: #bbdefb; color: #1565c0; }
+        .grade-c { background: #fff9c4; color: #f57f17; }
+        .grade-d { background: #ffccbc; color: #d84315; }
+        .grade-f { background: #ffcdd2; color: #c62828; }
+
         .highlight-box {
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
             color: white;
@@ -176,30 +207,124 @@
             margin: 1rem 0;
         }
 
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-        }
-
-        .contact-card {
+        /* Instructor Section */
+        .instructor-card {
             background: #f8f9fa;
-            padding: 1.5rem;
             border-radius: 10px;
-            text-align: center;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
         }
 
-        .contact-card h4 {
+        .instructor-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .instructor-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary-color);
+        }
+
+        .instructor-info h3 {
             color: var(--primary-color);
             margin-bottom: 0.5rem;
+            font-size: 1.3rem;
         }
 
-        footer {
-            background: #333;
-            color: white;
+        .instructor-bio {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .instructor-details {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .instructor-detail-item {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+        }
+
+        .instructor-detail-item strong {
+            color: var(--primary-dark);
+            min-width: 100px;
+        }
+
+        .instructor-detail-item a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .instructor-detail-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* Tips for Success */
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .tip-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 1.25rem;
             text-align: center;
-            padding: 1.5rem;
-            margin-top: 2rem;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .tip-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .tip-card p {
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        /* AI Policy Styles */
+        .ai-policy-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .ai-allowed {
+            background: #e8f5e9;
+            border-radius: 10px;
+            padding: 1.25rem;
+            border-left: 4px solid #4caf50;
+        }
+
+        .ai-allowed h4 {
+            color: #2e7d32;
+            margin-bottom: 0.75rem;
+        }
+
+        .ai-not-allowed {
+            background: #ffebee;
+            border-radius: 10px;
+            padding: 1.25rem;
+            border-left: 4px solid #f44336;
+        }
+
+        .ai-not-allowed h4 {
+            color: #c62828;
+            margin-bottom: 0.75rem;
         }
 
         @media (max-width: 768px) {
@@ -214,6 +339,28 @@
             .schedule-table {
                 font-size: 0.9rem;
             }
+
+            .grade-scale-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .ai-policy-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .instructor-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
         }
 
         @media print {
@@ -244,17 +391,18 @@
                     <span class="info-item">{{SEMESTER}}</span>
                     <span class="info-item">{{DAYS_TIMES}}</span>
                     <span class="info-item">{{LOCATION}}</span>
+                    <span class="info-item">{{CREDIT_HOURS}} Credits</span>
                 </div>
             </div>
         </header>
 
         <nav class="navigation">
             <a href="#overview" class="nav-link">Overview</a>
+            <a href="#instructor" class="nav-link">Instructor</a>
             <a href="#schedule" class="nav-link">Schedule</a>
             <a href="#grading" class="nav-link">Grading</a>
+            <a href="#tips" class="nav-link">Tips</a>
             <a href="#policies" class="nav-link">Policies</a>
-            <a href="#resources" class="nav-link">Resources</a>
-            <a href="#contact" class="nav-link">Contact</a>
         </nav>
 
         <main class="main-content">
@@ -267,12 +415,26 @@
                 </div>
 
                 <div class="card">
-                    <h3 class="card-title">Learning Objectives</h3>
+                    <h3 class="card-title">Prerequisites</h3>
+                    <p>{{PREREQUISITES}}</p>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">CBA Core Learning Outcomes</h3>
                     <ul>
-                        <li>{{LEARNING_OBJECTIVE_1}}</li>
-                        <li>{{LEARNING_OBJECTIVE_2}}</li>
-                        <li>{{LEARNING_OBJECTIVE_3}}</li>
-                        <li>{{LEARNING_OBJECTIVE_4}}</li>
+                        <li>{{CBA_LEARNING_OUTCOME_1}}</li>
+                        <li>{{CBA_LEARNING_OUTCOME_2}}</li>
+                        <li>{{CBA_LEARNING_OUTCOME_3}}</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">Course Learning Outcomes</h3>
+                    <ul>
+                        <li>{{COURSE_LEARNING_OUTCOME_1}}</li>
+                        <li>{{COURSE_LEARNING_OUTCOME_2}}</li>
+                        <li>{{COURSE_LEARNING_OUTCOME_3}}</li>
+                        <li>{{COURSE_LEARNING_OUTCOME_4}}</li>
                     </ul>
                 </div>
 
@@ -283,6 +445,51 @@
                         <li>{{SOFTWARE_OR_TOOLS}}</li>
                     </ul>
                 </div>
+
+                <div class="card">
+                    <h3 class="card-title">Core/Flag Designation</h3>
+                    <p>{{CORE_FLAG_DESIGNATION}}</p>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">Instructional Methods</h3>
+                    <p>{{INSTRUCTIONAL_METHODS}}</p>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">Work Load Expectations</h3>
+                    <p>Per LMU's <a href="https://academics.lmu.edu/aprc/lmucredithourpolicy/">Credit Hour Policy</a>, students are expected to spend a minimum of two hours outside of class for every hour in class. For a 3-credit course meeting 2.5 hours per week, expect approximately 5-6 hours of outside work weekly, including readings, assignments, and exam preparation.</p>
+                </div>
+            </section>
+
+            <!-- INSTRUCTOR -->
+            <section id="instructor" class="section">
+                <h2 class="section-title">Instructor</h2>
+                <div class="instructor-card">
+                    <h3>Greg Lontok</h3>
+                    <div class="instructor-details">
+                        <div class="instructor-detail-item">
+                            <strong>Email:</strong>
+                            <span><a href="mailto:gregory.lontok@lmu.edu">gregory.lontok@lmu.edu</a> (Teams preferred)</span>
+                        </div>
+                        <div class="instructor-detail-item">
+                            <strong>Office:</strong>
+                            <span>Hilton 114</span>
+                        </div>
+                        <div class="instructor-detail-item">
+                            <strong>Office Hours:</strong>
+                            <span>{{OFFICE_HOURS}} &mdash; <a href="https://calendly.com/greg-lontok">Schedule via Calendly</a></span>
+                        </div>
+                        <div class="instructor-detail-item">
+                            <strong>LinkedIn:</strong>
+                            <span><a href="http://linkedin.com/in/lontok">linkedin.com/in/lontok</a></span>
+                        </div>
+                        <div class="instructor-detail-item">
+                            <strong>Zoom:</strong>
+                            <span><a href="https://lmula.zoom.us/my/lontok">lmula.zoom.us/my/lontok</a></span>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <!-- SCHEDULE -->
@@ -292,26 +499,43 @@
                     <thead>
                         <tr>
                             <th>Week</th>
+                            <th>Date</th>
+                            <th>Day</th>
                             <th>Topic</th>
-                            <th>Readings</th>
-                            <th>Assignments</th>
+                            <th>Due</th>
                         </tr>
                     </thead>
                     <tbody>
                         <!-- TEMPLATE: Add your weekly schedule -->
                         <tr>
                             <td>1</td>
+                            <td>{{WEEK_1_DATE}}</td>
+                            <td>{{WEEK_1_DAY}}</td>
                             <td>{{WEEK_1_TOPIC}}</td>
-                            <td>{{WEEK_1_READINGS}}</td>
-                            <td>{{WEEK_1_ASSIGNMENTS}}</td>
+                            <td>{{WEEK_1_DUE}}</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>{{WEEK_1_DATE_2}}</td>
+                            <td>{{WEEK_1_DAY_2}}</td>
+                            <td>{{WEEK_1_TOPIC_2}}</td>
+                            <td>{{WEEK_1_DUE_2}}</td>
                         </tr>
                         <tr>
                             <td>2</td>
+                            <td>{{WEEK_2_DATE}}</td>
+                            <td>{{WEEK_2_DAY}}</td>
                             <td>{{WEEK_2_TOPIC}}</td>
-                            <td>{{WEEK_2_READINGS}}</td>
-                            <td>{{WEEK_2_ASSIGNMENTS}}</td>
+                            <td>{{WEEK_2_DUE}}</td>
                         </tr>
-                        <!-- Add more weeks as needed -->
+                        <tr>
+                            <td>2</td>
+                            <td>{{WEEK_2_DATE_2}}</td>
+                            <td>{{WEEK_2_DAY_2}}</td>
+                            <td>{{WEEK_2_TOPIC_2}}</td>
+                            <td>{{WEEK_2_DUE_2}}</td>
+                        </tr>
+                        <!-- Add more rows as needed -->
                     </tbody>
                 </table>
             </section>
@@ -346,8 +570,75 @@
 
                 <div class="card">
                     <h3 class="card-title">Grading Scale</h3>
-                    <p>A: 93-100 | A-: 90-92 | B+: 87-89 | B: 83-86 | B-: 80-82</p>
-                    <p>C+: 77-79 | C: 73-76 | C-: 70-72 | D: 60-69 | F: Below 60</p>
+                    <div class="grade-scale-grid">
+                        <div class="grade-box grade-a">
+                            <span class="grade-letter">A</span>
+                            <span class="grade-range">93-100</span>
+                        </div>
+                        <div class="grade-box grade-a">
+                            <span class="grade-letter">A-</span>
+                            <span class="grade-range">90-92</span>
+                        </div>
+                        <div class="grade-box grade-b">
+                            <span class="grade-letter">B+</span>
+                            <span class="grade-range">87-89</span>
+                        </div>
+                        <div class="grade-box grade-b">
+                            <span class="grade-letter">B</span>
+                            <span class="grade-range">83-86</span>
+                        </div>
+                        <div class="grade-box grade-b">
+                            <span class="grade-letter">B-</span>
+                            <span class="grade-range">80-82</span>
+                        </div>
+                        <div class="grade-box grade-c">
+                            <span class="grade-letter">C+</span>
+                            <span class="grade-range">77-79</span>
+                        </div>
+                        <div class="grade-box grade-c">
+                            <span class="grade-letter">C</span>
+                            <span class="grade-range">73-76</span>
+                        </div>
+                        <div class="grade-box grade-c">
+                            <span class="grade-letter">C-</span>
+                            <span class="grade-range">70-72</span>
+                        </div>
+                        <div class="grade-box grade-d">
+                            <span class="grade-letter">D</span>
+                            <span class="grade-range">60-69</span>
+                        </div>
+                        <div class="grade-box grade-f">
+                            <span class="grade-letter">F</span>
+                            <span class="grade-range">Below 60</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TIPS FOR SUCCESS -->
+            <section id="tips" class="section">
+                <h2 class="section-title">Tips for Succeeding in Class</h2>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <h4>Stay Present & Engaged</h4>
+                        <p>Show up — in person, on Teams, and in conversations. The more visible you are, the more I can coach you toward success. Disappearing is the fastest way to fall behind.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4>Bring Solutions, Not Just Problems</h4>
+                        <p>Challenges will come up: a tricky assignment, a group conflict, a late submission. When you reach out, also suggest a possible solution. This shows initiative and makes it easier for us to problem-solve together.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4>Build a Professional Relationship</h4>
+                        <p>Treat this class like a career opportunity. Ask questions, <a href="{{LINKEDIN_URL}}">connect with me on LinkedIn</a>, and seek feedback. Faculty often recommend students for jobs, but only if they know and trust you.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4>Practice Professionalism Daily</h4>
+                        <p>How you write emails and Teams messages, present your work, and collaborate with peers reflects directly on your future career. Use this class as a low-risk environment to practice the habits employers value.</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4>Find Your Voice</h4>
+                        <p>Speaking up in class isn't the only way to contribute. Use Teams chat, post questions, or share resources. What matters is showing that you are actively learning and thinking — not staying silent.</p>
+                    </div>
                 </div>
             </section>
 
@@ -356,73 +647,81 @@
                 <h2 class="section-title">Course Policies</h2>
 
                 <div class="card">
-                    <h3 class="card-title">Attendance</h3>
-                    <p>{{ATTENDANCE_POLICY}}</p>
+                    <h3 class="card-title">AI Policy</h3>
+                    <p>AI tools like ChatGPT and GitHub Copilot are permitted in this course as learning aids. However, you must understand and be able to explain any AI-assisted work you submit.</p>
+                    <div class="ai-policy-grid">
+                        <div class="ai-allowed">
+                            <h4>Allowed</h4>
+                            <ul>
+                                <li>Using AI to brainstorm ideas and explore concepts</li>
+                                <li>Getting help understanding error messages or debugging</li>
+                                <li>Learning syntax or exploring different approaches</li>
+                                <li>Reviewing and improving your own written work</li>
+                            </ul>
+                        </div>
+                        <div class="ai-not-allowed">
+                            <h4>Not Allowed</h4>
+                            <ul>
+                                <li>Submitting AI-generated work as your own without understanding it</li>
+                                <li>Using AI during exams or interviews unless explicitly permitted</li>
+                                <li>Copying AI output directly without review and modification</li>
+                                <li>Using AI to complete work that assesses your individual learning</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="card">
-                    <h3 class="card-title">Late Work</h3>
-                    <p>{{LATE_WORK_POLICY}}</p>
+                    <h3 class="card-title">Attendance & Participation</h3>
+                    <p>Regular attendance and active participation are essential for success in this course. You are expected to attend all class sessions, arrive on time, and be prepared to engage with the material. If you must miss a class, please notify the instructor in advance when possible. Excessive absences may impact your participation grade and overall performance in the course.</p>
                 </div>
 
                 <div class="card">
-                    <h3 class="card-title">Academic Integrity</h3>
-                    <p>{{ACADEMIC_INTEGRITY_POLICY}}</p>
+                    <h3 class="card-title">Assignment Submission</h3>
+                    <p>All assignments must be submitted through the designated platform (Brightspace) by the specified deadline. Late submissions will be penalized 10% per day unless prior arrangements have been made with the instructor. Technical issues are not valid excuses for late submissions—plan ahead and submit early. Extensions may be granted in cases of documented emergencies.</p>
                 </div>
 
                 <div class="card">
-                    <h3 class="card-title">AI Usage Policy</h3>
-                    <p>{{AI_USAGE_POLICY}}</p>
+                    <h3 class="card-title">Academic Honesty</h3>
+                    <p>Academic integrity is fundamental to the mission of Loyola Marymount University. All students are expected to adhere to the <a href="https://academics.lmu.edu/honesty/">LMU Academic Honesty Policy</a>. Violations include but are not limited to: plagiarism, cheating on exams, unauthorized collaboration, and fabrication of sources. Any violation will result in disciplinary action, which may include failure of the assignment, failure of the course, and/or referral to the Dean of Students.</p>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">Accommodations</h3>
+                    <p>Students with disabilities who require accommodations should contact <a href="https://academics.lmu.edu/dss/">Disability Support Services (DSS)</a> to establish eligibility and coordinate appropriate accommodations. Please provide the instructor with your accommodation letter as early as possible so we can work together to support your learning. All discussions will remain confidential.</p>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">Syllabus Changes</h3>
+                    <p>This syllabus is subject to change based on the needs of the class. Any changes will be announced in class and posted on Brightspace. Students are responsible for staying informed of any modifications to the course schedule, assignments, or policies.</p>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">Exams & Quizzes</h3>
+                    <p>There are no make-up exams or quizzes. If you miss an exam or quiz due to a documented emergency, contact the instructor as soon as possible to discuss options.</p>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">Electronic Devices</h3>
+                    <p>Laptops and tablets are permitted for note-taking and class activities. Please silence your phone and avoid non-class-related browsing during class time. If device use becomes disruptive, the instructor reserves the right to restrict their use.</p>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">Title IX & Reporting</h3>
+                    <p>LMU is committed to creating a safe and supportive environment for all students. If you experience or witness sexual harassment, sexual assault, domestic violence, dating violence, or stalking, please know that help is available. You can report incidents and find resources through <a href="http://studentaffairs.lmu.edu/lmucares/">LMU Cares</a>. Faculty members are required to report incidents to the Title IX office.</p>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">Emergency Preparedness</h3>
+                    <p>In case of emergency, follow the instructions of your instructor and building emergency personnel. Familiarize yourself with the nearest exits and emergency procedures. For campus emergency information, visit <a href="http://www.lmu.edu/emergency">lmu.edu/emergency</a>. Sign up for LMU Alerts to receive emergency notifications.</p>
                 </div>
             </section>
 
-            <!-- RESOURCES -->
-            <section id="resources" class="section">
-                <h2 class="section-title">Resources</h2>
-
-                <div class="highlight-box">
-                    <h3>Student Success Resources</h3>
-                    <p>{{SUCCESS_RESOURCES_DESCRIPTION}}</p>
-                </div>
-
-                <div class="card">
-                    <h3 class="card-title">Campus Resources</h3>
-                    <ul>
-                        <li><strong>Writing Center:</strong> {{WRITING_CENTER_INFO}}</li>
-                        <li><strong>Tutoring Services:</strong> {{TUTORING_INFO}}</li>
-                        <li><strong>Accessibility Services:</strong> {{ACCESSIBILITY_INFO}}</li>
-                        <li><strong>Counseling Services:</strong> {{COUNSELING_INFO}}</li>
-                    </ul>
-                </div>
-            </section>
-
-            <!-- CONTACT -->
-            <section id="contact" class="section">
-                <h2 class="section-title">Contact Information</h2>
-                <div class="contact-grid">
-                    <div class="contact-card">
-                        <h4>Instructor</h4>
-                        <p><strong>{{INSTRUCTOR_NAME}}</strong></p>
-                        <p>{{INSTRUCTOR_EMAIL}}</p>
-                        <p>Office: {{OFFICE_LOCATION}}</p>
-                    </div>
-                    <div class="contact-card">
-                        <h4>Office Hours</h4>
-                        <p>{{OFFICE_HOURS}}</p>
-                        <p>{{OFFICE_HOURS_NOTES}}</p>
-                    </div>
-                    <div class="contact-card">
-                        <h4>Teaching Assistant</h4>
-                        <p><strong>{{TA_NAME}}</strong></p>
-                        <p>{{TA_EMAIL}}</p>
-                    </div>
-                </div>
-            </section>
         </main>
 
         <footer>
             <p>{{INSTITUTION_NAME}} | {{SEMESTER}}</p>
-            <p>&copy; {{YEAR}} {{INSTRUCTOR_NAME}}</p>
+            <p>&copy; {{YEAR}} Greg Lontok</p>
         </footer>
     </div>
 
