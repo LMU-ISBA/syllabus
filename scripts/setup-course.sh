@@ -43,6 +43,7 @@ CREDIT_HOURS=$(prompt_with_default "Credit hours" "4")
 OFFICE_LOCATION=$(prompt_with_default "Office location" "Hilton 114")
 OFFICE_HOURS=$(prompt_with_default "Office hours" "")
 LINKEDIN_URL=$(prompt_with_default "LinkedIn URL" "http://linkedin.com/in/lontok")
+REGISTRAR_CALENDAR_URL=$(prompt_with_default "Registrar calendar URL (for important dates)" "https://registrar.lmu.edu/calendars/")
 
 echo ""
 echo "================================================"
@@ -94,6 +95,7 @@ replace_placeholder "CREDIT_HOURS" "$CREDIT_HOURS"
 replace_placeholder "OFFICE_LOCATION" "$OFFICE_LOCATION"
 replace_placeholder "OFFICE_HOURS" "$OFFICE_HOURS"
 replace_placeholder "LINKEDIN_URL" "$LINKEDIN_URL"
+replace_placeholder "REGISTRAR_CALENDAR_URL" "$REGISTRAR_CALENDAR_URL"
 
 echo ""
 echo "================================================"
