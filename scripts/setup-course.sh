@@ -39,6 +39,7 @@ INSTRUCTOR_EMAIL=$(prompt_with_default "Instructor email" "gregory.lontok@lmu.ed
 INSTITUTION_NAME=$(prompt_with_default "Institution name" "Loyola Marymount University")
 DAYS_TIMES=$(prompt_with_default "Class days/times (e.g., MW 2:30-3:45pm)" "")
 LOCATION=$(prompt_with_default "Classroom location" "")
+CREDIT_HOURS=$(prompt_with_default "Credit hours" "4")
 OFFICE_LOCATION=$(prompt_with_default "Office location" "Hilton 114")
 OFFICE_HOURS=$(prompt_with_default "Office hours" "")
 
@@ -88,6 +89,7 @@ replace_placeholder "INSTRUCTOR_EMAIL" "$INSTRUCTOR_EMAIL"
 replace_placeholder "INSTITUTION_NAME" "$INSTITUTION_NAME"
 replace_placeholder "DAYS_TIMES" "$DAYS_TIMES"
 replace_placeholder "LOCATION" "$LOCATION"
+replace_placeholder "CREDIT_HOURS" "$CREDIT_HOURS"
 replace_placeholder "OFFICE_LOCATION" "$OFFICE_LOCATION"
 replace_placeholder "OFFICE_HOURS" "$OFFICE_HOURS"
 
@@ -108,7 +110,7 @@ if [[ "$REPO_URL" =~ github\.com[:/]([^/]+)/([^/.]+) ]]; then
         # Enable GitHub Pages with Actions workflow
         if gh api "repos/$REPO_OWNER/$REPO_NAME/pages" -X POST -f build_type=workflow 2>/dev/null; then
             echo "  ✓ GitHub Pages enabled"
-            echo "  ✓ Website will be at: https://${REPO_OWNER,,}.github.io/$REPO_NAME/"
+            echo "  ✓ Website will be at: https://$(echo "$REPO_OWNER" | tr '[:upper:]' '[:lower:]').github.io/$REPO_NAME/"
         else
             # Pages might already be enabled
             PAGES_URL=$(gh api "repos/$REPO_OWNER/$REPO_NAME/pages" --jq '.html_url' 2>/dev/null || echo "")
